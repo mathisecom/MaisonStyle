@@ -14,7 +14,10 @@
       "name": "Featured collection",
       "settings": {
         "collection": "",
-        "products": [],
+        "products": [
+          "arbre-de-noel-en-bois-lumineux",
+          "lecteur-de-disques-vinyle-miniature-personnalise"
+        ],
         "full_width": true,
         "stack_products": false,
         "show_progress_bar": true,
@@ -31,7 +34,7 @@
         "text_color": "",
         "heading_color": "",
         "heading_gradient": "",
-        "product_card_background": "#FBF9F5",
+        "product_card_background": "#fbf9f5",
         "product_card_text_color": ""
       }
     },
