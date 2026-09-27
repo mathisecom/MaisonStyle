@@ -1,0 +1,1165 @@
+{% comment %}
+  Maisonpourcentstyles — Univers musicaux
+  Installation : créer sections/mps-univers.liquid, puis ajouter
+  « Univers musicaux » dans l’éditeur de thème.
+  Fichier autonome : aucun snippet, aucune police ou bibliothèque à installer.
+{% endcomment %}
+
+{%- liquid
+  assign heading_font = settings.type_header_font
+  if heading_font.family == blank or heading_font.family == nil
+    assign heading_font = settings.heading_font
+  endif
+  if heading_font.family == blank or heading_font.family == nil
+    assign heading_font = settings.font_heading
+  endif
+  assign body_font = settings.type_body_font
+  if body_font.family == blank or body_font.family == nil
+    assign body_font = settings.body_font
+  endif
+  if body_font.family == blank or body_font.family == nil
+    assign body_font = settings.font_body
+  endif
+  assign visual_count = section.blocks.size | at_least: 1
+  assign text_width = 100 | minus: section.settings.image_width
+  assign has_tabs = false
+  if section.blocks.size > 1
+    assign has_tabs = true
+  endif
+  assign image_loading = 'lazy'
+  if section.index == 1
+    assign image_loading = 'eager'
+  endif
+-%}
+
+{%- capture image_sizes -%}
+  (min-width: {{ section.settings.max_width }}px) {{ section.settings.max_width | times: section.settings.image_width | divided_by: 100 }}px, (min-width: 990px) {{ section.settings.image_width }}vw, 100vw
+{%- endcapture -%}
+
+{% style %}
+  #MpsUnivers-{{ section.id }} {
+    --mps-bg: {{ section.settings.background }};
+    --mps-heading: {{ section.settings.heading_color }};
+    --mps-text: {{ section.settings.text_color }};
+    --mps-accent: {{ section.settings.accent_color }};
+    --mps-tab-border: {{ section.settings.tab_border }};
+    --mps-tab-bg: {{ section.settings.tab_active_bg }};
+    --mps-tab-text: {{ section.settings.tab_active_text }};
+    --mps-button-bg: {{ section.settings.button_bg }};
+    --mps-button-text: {{ section.settings.button_color }};
+    --mps-caption-bg: {{ section.settings.caption_bg | color_modify: 'alpha', 0.88 }};
+    --mps-caption-text: {{ section.settings.caption_color }};
+    --mps-image-bg: {{ section.settings.image_bg }};
+    --mps-title-size: {{ section.settings.title_size }}px;
+    --mps-subtitle-size: {{ section.settings.subtitle_size }}px;
+    --mps-text-size: {{ section.settings.text_size }}px;
+    --mps-label-size: {{ section.settings.label_size }}px;
+    --mps-tab-size: {{ section.settings.tab_size }}px;
+    --mps-button-size: {{ section.settings.button_size }}px;
+    --mps-small-size: {{ section.settings.small_size }}px;
+    --mps-content-gap: {{ section.settings.content_gap }}px;
+    --mps-button-radius: {{ section.settings.button_radius }}px;
+    --mps-tab-radius: {{ section.settings.tab_radius }}px;
+    --mps-align: {{ section.settings.text_align }};
+    display: block;
+    width: 100%;
+    background: var(--mps-bg);
+    color: var(--mps-text);
+    padding: {{ section.settings.padding_top }}px {{ section.settings.padding_x }}px {{ section.settings.padding_bottom }}px;
+    font-size: var(--mps-text-size);
+    line-height: 1.8;
+    text-transform: none;
+    letter-spacing: normal;
+    {% if body_font.family and body_font.family != blank %}
+      font-family: {{ body_font.family }}, {{ body_font.fallback_families }};
+    {% endif %}
+  }
+  #MpsUnivers-{{ section.id }} *,
+  #MpsUnivers-{{ section.id }} *::before,
+  #MpsUnivers-{{ section.id }} *::after { box-sizing: border-box; }
+  #MpsUnivers-{{ section.id }} [hidden] { display: none !important; }
+  #MpsUnivers-{{ section.id }} .mps-univers__grid {
+    display: grid;
+    grid-template-columns: minmax(0, {{ section.settings.image_width }}fr) minmax(0, {{ text_width }}fr);
+    gap: {{ section.settings.gap_desktop }}px;
+    align-items: center;
+    max-width: {{ section.settings.max_width }}px;
+    margin-inline: auto;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__media,
+  #MpsUnivers-{{ section.id }} .mps-univers__content { min-width: 0; }
+  #MpsUnivers-{{ section.id }} .mps-univers__content { width: 100%; max-width: {{ section.settings.content_width }}px; text-align: var(--mps-align); }
+  #MpsUnivers-{{ section.id }} .mps-univers__figure {
+    position: relative;
+    isolation: isolate;
+    margin: 0;
+    overflow: hidden;
+    background: var(--mps-image-bg);
+    border-radius: {{ section.settings.image_radius }}px;
+    {% if section.settings.image_ratio != 'adapt' %}
+      aspect-ratio: {{ section.settings.image_ratio }};
+    {% endif %}
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__image,
+  #MpsUnivers-{{ section.id }} .mps-univers__placeholder {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    {% if section.settings.image_ratio == 'adapt' %}
+      height: auto;
+    {% else %}
+      height: 100%;
+    {% endif %}
+    object-fit: {{ section.settings.image_fit }};
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__placeholder {
+    fill: var(--mps-bg);
+    min-height: 220px;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__caption {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 16px 20px;
+    color: var(--mps-caption-text);
+    background: var(--mps-caption-bg);
+    font-size: var(--mps-small-size);
+    line-height: 1.55;
+    text-align: start;
+    overflow-wrap: anywhere;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__caption svg { flex: 0 0 16px; width: 16px; height: 20px; }
+  #MpsUnivers-{{ section.id }} .mps-univers__eyebrow,
+  #MpsUnivers-{{ section.id }} .mps-univers__status {
+    margin: 0 0 14px;
+    color: var(--mps-accent);
+    font-size: var(--mps-label-size);
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__heading,
+  #MpsUnivers-{{ section.id }} .mps-univers__subtitle {
+    margin: 0;
+    color: var(--mps-heading);
+    letter-spacing: normal;
+    text-transform: none;
+    overflow-wrap: anywhere;
+    {% if heading_font.family and heading_font.family != blank %}
+      font-family: {{ heading_font.family }}, {{ heading_font.fallback_families }};
+      font-weight: {{ heading_font.weight }};
+      font-style: {{ heading_font.style }};
+    {% endif %}
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__heading { font-size: var(--mps-title-size); line-height: 1.1; }
+  #MpsUnivers-{{ section.id }} .mps-univers__heading > span { display: block; }
+  #MpsUnivers-{{ section.id }} .mps-univers__heading em { color: var(--mps-accent); }
+  #MpsUnivers-{{ section.id }} .mps-univers__intro { margin-top: var(--mps-content-gap); }
+  #MpsUnivers-{{ section.id }} .mps-univers__richtext {
+    color: var(--mps-text);
+    font-size: var(--mps-text-size);
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__richtext > :first-child { margin-top: 0; }
+  #MpsUnivers-{{ section.id }} .mps-univers__richtext > :last-child { margin-bottom: 0; }
+  #MpsUnivers-{{ section.id }} .mps-univers__richtext p { margin: 0 0 0.8em; }
+  #MpsUnivers-{{ section.id }} .mps-univers__richtext a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  #MpsUnivers-{{ section.id }} .mps-univers__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: {% if section.settings.text_align == 'center' %}center{% else %}flex-start{% endif %};
+    gap: 7px;
+    margin: var(--mps-content-gap) 0 0;
+    padding: 0;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__tab {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    max-width: 100%;
+    padding: 9px 13px;
+    margin: 0;
+    border: 1px solid var(--mps-tab-border);
+    border-radius: var(--mps-tab-radius);
+    background: transparent;
+    color: var(--mps-heading);
+    font: inherit;
+    width: auto;
+    min-width: 0;
+    font-size: var(--mps-tab-size);
+    line-height: 1.4;
+    letter-spacing: normal;
+    text-transform: none;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+    box-shadow: none;
+    transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__tab[aria-selected="true"] {
+    background: var(--mps-tab-bg);
+    border-color: var(--mps-tab-bg);
+    color: var(--mps-tab-text);
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__tab:hover { border-color: var(--mps-heading); }
+  #MpsUnivers-{{ section.id }} .mps-univers__panel { margin-top: var(--mps-content-gap); }
+  #MpsUnivers-{{ section.id }} .mps-univers__status { margin-bottom: 10px; }
+  #MpsUnivers-{{ section.id }} .mps-univers__subtitle { font-size: var(--mps-subtitle-size); line-height: 1.3; margin-bottom: 12px; }
+  #MpsUnivers-{{ section.id }} .mps-univers__actions { margin-top: var(--mps-content-gap); }
+  #MpsUnivers-{{ section.id }} .mps-univers__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    min-height: 54px;
+    max-width: 100%;
+    padding: 15px 24px;
+    border: 1px solid var(--mps-button-bg);
+    border-radius: var(--mps-button-radius);
+    background: var(--mps-button-bg);
+    color: var(--mps-button-text);
+    font: inherit;
+    font-size: var(--mps-button-size);
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: none;
+    text-decoration: none;
+    text-align: center;
+    overflow-wrap: anywhere;
+    box-shadow: none;
+    transition: opacity 160ms ease;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__button span { min-width: 0; }
+  #MpsUnivers-{{ section.id }} .mps-univers__button svg { flex: 0 0 18px; width: 18px; height: 18px; }
+  #MpsUnivers-{{ section.id }} a.mps-univers__button:hover { opacity: 0.86; }
+  #MpsUnivers-{{ section.id }} .mps-univers__note {
+    color: var(--mps-text);
+    font-size: var(--mps-small-size);
+    line-height: 1.6;
+    margin: 14px 0 0;
+    overflow-wrap: anywhere;
+  }
+  #MpsUnivers-{{ section.id }} .mps-univers__editor-tip { font-size: 12px; margin: 10px 0 0; }
+  #MpsUnivers-{{ section.id }} :is(a, button, [tabindex]):focus-visible { outline: 2px solid var(--mps-accent); outline-offset: 4px; }
+  {% if section.settings.desktop_order == 'text_first' %}
+    @media (min-width: 990px) {
+      #MpsUnivers-{{ section.id }} .mps-univers__grid { grid-template-columns: minmax(0, {{ text_width }}fr) minmax(0, {{ section.settings.image_width }}fr); }
+      #MpsUnivers-{{ section.id }} .mps-univers__media { order: 2; }
+    }
+  {% endif %}
+  @media (max-width: 989px) {
+    #MpsUnivers-{{ section.id }} {
+      --mps-title-size: {{ section.settings.title_size_mobile }}px;
+      --mps-subtitle-size: {{ section.settings.subtitle_size_mobile }}px;
+      --mps-text-size: {{ section.settings.text_size_mobile }}px;
+      --mps-align: {{ section.settings.mobile_align }};
+      padding: {{ section.settings.padding_top_mobile }}px {{ section.settings.padding_x_mobile }}px {{ section.settings.padding_bottom_mobile }}px;
+    }
+    #MpsUnivers-{{ section.id }} .mps-univers__grid { grid-template-columns: minmax(0, 1fr); gap: {{ section.settings.gap_mobile }}px; }
+    #MpsUnivers-{{ section.id }} .mps-univers__content { max-width: none; }
+    #MpsUnivers-{{ section.id }} .mps-univers__tabs { justify-content: {% if section.settings.mobile_align == 'center' %}center{% else %}flex-start{% endif %}; }
+    {% if section.settings.mobile_order == 'text_first' %}
+      #MpsUnivers-{{ section.id }} .mps-univers__media { order: 2; }
+    {% endif %}
+    {% if section.settings.mobile_button_full %}
+      #MpsUnivers-{{ section.id }} .mps-univers__button { width: 100%; }
+    {% endif %}
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #MpsUnivers-{{ section.id }} .mps-univers__tab,
+    #MpsUnivers-{{ section.id }} .mps-univers__button { transition: none; }
+  }
+{% endstyle %}
+
+<mps-univers id="MpsUnivers-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="mps-univers__grid">
+    <div class="mps-univers__media">
+      {%- for index in (1..visual_count) -%}
+        {%- liquid
+          assign block_index = forloop.index0
+          assign universe = section.blocks[block_index]
+          assign visual_id = universe.id | default: 'default'
+          assign image = universe.settings.image | default: universe.settings.product.featured_image | default: section.settings.image | default: section.settings.product.featured_image | default: false
+          assign image_alt = universe.settings.image_alt | default: section.settings.image_alt | default: image.alt | default: section.settings.heading_top
+          assign caption = universe.settings.caption | default: section.settings.caption | default: ''
+          assign current_loading = 'lazy'
+          if forloop.first
+            assign current_loading = image_loading
+          endif
+        -%}
+        <figure class="mps-univers__figure" data-mps-visual="{{ visual_id }}"{% unless forloop.first %} hidden{% endunless %}>
+          {% if image and image != blank %}
+            {{ image | image_url: width: 2000 | image_tag: widths: '360, 540, 720, 900, 1200, 1600, 2000', sizes: image_sizes, loading: current_loading, class: 'mps-univers__image', alt: image_alt }}
+          {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'mps-univers__placeholder' }}
+          {% endif %}
+          {% if caption != blank and universe.settings.hide_caption != true %}
+            <figcaption class="mps-univers__caption">
+              {% if section.settings.show_note_icon %}
+                <svg viewBox="0 0 20 24" fill="none" aria-hidden="true" focusable="false"><path d="M8 18V4l8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="5" cy="18" rx="3" ry="3.5" stroke="currentColor" stroke-width="1.5"/></svg>
+              {% endif %}
+              <span>{{ caption | escape }}</span>
+            </figcaption>
+          {% endif %}
+        </figure>
+      {%- endfor -%}
+    </div>
+
+    <div class="mps-univers__content">
+      {% if section.settings.eyebrow and section.settings.eyebrow != blank %}
+        <p class="mps-univers__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {% endif %}
+      {% if section.settings.heading_top != blank or section.settings.heading_bottom != blank %}
+        <h2 class="mps-univers__heading">
+          {% if section.settings.heading_top != blank %}<span>{{ section.settings.heading_top }}</span>{% endif %}
+          {% if section.settings.heading_bottom != blank %}<span>{{ section.settings.heading_bottom }}</span>{% endif %}
+        </h2>
+      {% endif %}
+      {% if section.settings.intro and section.settings.intro != blank %}
+        <div class="mps-univers__richtext mps-univers__intro">{{ section.settings.intro }}</div>
+      {% endif %}
+
+      {% if has_tabs %}
+        <div class="mps-univers__tabs" role="tablist" aria-label="{{ section.settings.tabs_label | escape }}">
+          {% for block in section.blocks %}
+            <button
+              class="mps-univers__tab"
+              id="MpsTab-{{ section.id }}-{{ block.id }}"
+              type="button"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="MpsPanel-{{ section.id }}-{{ block.id }}"
+              tabindex="{% if forloop.first %}0{% else %}-1{% endif %}"
+              data-mps-tab="{{ block.id }}"
+              {{ block.shopify_attributes }}
+            ><span>{{ block.settings.title | default: 'Univers' | escape }}</span></button>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <div class="mps-univers__panels">
+        {% for index in (1..visual_count) %}
+          {%- liquid
+            assign block_index = forloop.index0
+            assign block = section.blocks[block_index]
+            assign panel_id = block.id | default: 'default'
+            assign button_label = block.settings.button_label | default: section.settings.button_label | default: ''
+            assign button_link = block.settings.button_link | default: block.settings.product.url | default: section.settings.button_link | default: section.settings.product.url | default: ''
+            assign note = block.settings.note | default: section.settings.note | default: ''
+          -%}
+          <div
+            class="mps-univers__panel"
+            id="MpsPanel-{{ section.id }}-{{ panel_id }}"
+            data-mps-panel="{{ panel_id }}"
+            {% if has_tabs %}role="tabpanel" aria-labelledby="MpsTab-{{ section.id }}-{{ block.id }}" tabindex="0"{% else %}{{ block.shopify_attributes }}{% endif %}
+            {% unless forloop.first %}hidden{% endunless %}
+          >
+            {% if block.settings.eyebrow and block.settings.eyebrow != blank %}<p class="mps-univers__status">{{ block.settings.eyebrow | escape }}</p>{% endif %}
+            {% if block.settings.heading and block.settings.heading != blank %}<h3 class="mps-univers__subtitle">{{ block.settings.heading }}</h3>{% endif %}
+            {% if block.settings.description and block.settings.description != blank %}<div class="mps-univers__richtext">{{ block.settings.description }}</div>{% endif %}
+
+            {% if button_label != blank and block.settings.hide_button != true %}
+              {% if button_link != blank or request.design_mode %}
+                <div class="mps-univers__actions">
+                  {% if button_link != blank %}
+                    <a class="mps-univers__button" href="{{ button_link | escape }}">
+                  {% else %}
+                    <span class="mps-univers__button" aria-disabled="true">
+                  {% endif %}
+                    <span>{{ button_label | escape }}</span>
+                    {% if section.settings.show_button_arrow %}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>{% endif %}
+                  {% if button_link != blank %}</a>{% else %}</span>{% endif %}
+                  {% if button_link == blank and request.design_mode %}<p class="mps-univers__editor-tip">Choisissez un produit ou un lien pour afficher ce bouton sur la boutique.</p>{% endif %}
+                </div>
+              {% endif %}
+            {% endif %}
+            {% if note != blank and block.settings.hide_note != true %}<p class="mps-univers__note">{{ note | escape }}</p>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</mps-univers>
+
+<noscript>
+  <style>
+    #MpsUnivers-{{ section.id }} .mps-univers__tabs { display: none; }
+    #MpsUnivers-{{ section.id }} .mps-univers__panel[hidden] { display: block !important; }
+  </style>
+</noscript>
+
+{% javascript %}
+  if (!customElements.get('mps-univers')) {
+    customElements.define('mps-univers', class extends HTMLElement {
+      connectedCallback() {
+        this.mpsController?.abort();
+        this.mpsController = new AbortController();
+        const options = { signal: this.mpsController.signal };
+        this.tabs = Array.from(this.querySelectorAll('[data-mps-tab]'));
+        this.panels = Array.from(this.querySelectorAll('[data-mps-panel]'));
+        this.visuals = Array.from(this.querySelectorAll('[data-mps-visual]'));
+        this.tabs.forEach((tab, index) => {
+          tab.addEventListener('click', () => this.activate(tab.dataset.mpsTab), options);
+          tab.addEventListener('keydown', (event) => {
+            let nextIndex;
+            const direction = getComputedStyle(this).direction === 'rtl' ? -1 : 1;
+            if (event.key === 'ArrowRight') nextIndex = index + direction;
+            if (event.key === 'ArrowLeft') nextIndex = index - direction;
+            if (event.key === 'Home') nextIndex = 0;
+            if (event.key === 'End') nextIndex = this.tabs.length - 1;
+            if (nextIndex === undefined) return;
+            event.preventDefault();
+            const nextTab = this.tabs[(nextIndex + this.tabs.length) % this.tabs.length];
+            this.activate(nextTab.dataset.mpsTab);
+            nextTab.focus({ preventScroll: true });
+          }, options);
+        });
+        document.addEventListener('shopify:block:select', (event) => {
+          const blockId = String(event.detail?.blockId || '');
+          if (this.panels.some((panel) => panel.dataset.mpsPanel === blockId)) this.activate(blockId);
+        }, options);
+        const initial = this.tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || this.tabs[0];
+        if (initial) this.activate(initial.dataset.mpsTab);
+      }
+      disconnectedCallback() {
+        this.mpsController?.abort();
+      }
+      activate(id) {
+        if (!this.panels.some((panel) => panel.dataset.mpsPanel === id)) return;
+        this.tabs.forEach((tab) => {
+          const active = tab.dataset.mpsTab === id;
+          tab.setAttribute('aria-selected', String(active));
+          tab.tabIndex = active ? 0 : -1;
+        });
+        this.panels.forEach((panel) => { panel.hidden = panel.dataset.mpsPanel !== id; });
+        this.visuals.forEach((visual) => { visual.hidden = visual.dataset.mpsVisual !== id; });
+      }
+    });
+  }
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Univers musicaux",
+  "tag": "section",
+  "class": "mps-univers-section",
+  "max_blocks": 12,
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Textes principaux"
+    },
+    {
+      "type": "paragraph",
+      "content": "Les polices de votre thème sont conservées. Mettez un mot du titre en italique pour lui appliquer la couleur d’accent. Supprimez un texte pour le masquer."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Surtitre",
+      "default": "Un objet, mille émotions"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_top",
+      "label": "Titre : première ligne",
+      "default": "À chaque moment,"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading_bottom",
+      "label": "Titre : deuxième ligne",
+      "default": "sa <em>bande-son.</em>"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Introduction",
+      "default": "<p>Un lecteur musical à disques magnétiques, imaginé pour accompagner les fêtes, les passions et les petits moments du quotidien.</p>"
+    },
+    {
+      "type": "text",
+      "id": "tabs_label",
+      "label": "Nom accessible des onglets",
+      "info": "Lu par les lecteurs d’écran.",
+      "default": "Choisir un univers musical"
+    },
+    {
+      "type": "header",
+      "content": "Image commune"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image principale"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "Description de l’image",
+      "info": "Facultatif. Décrivez le produit pour l’accessibilité."
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "Légende",
+      "default": "Le lecteur musical — édition Noël présentée"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_note_icon",
+      "label": "Afficher l’icône musicale",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Format de l’image",
+      "options": [
+        {
+          "value": "1 / 1",
+          "label": "Carré"
+        },
+        {
+          "value": "4 / 5",
+          "label": "Portrait"
+        },
+        {
+          "value": "4 / 3",
+          "label": "Paysage"
+        },
+        {
+          "value": "adapt",
+          "label": "Proportions de l’image"
+        }
+      ],
+      "default": "1 / 1"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Ajustement de l’image",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Remplir le cadre"
+        },
+        {
+          "value": "contain",
+          "label": "Afficher l’image entière"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "image_radius",
+      "label": "Arrondi de l’image",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Bouton et note communs"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Produit à découvrir",
+      "info": "Son lien est utilisé si aucun lien personnalisé n’est indiqué. Sa photo sert d’image de secours."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texte du bouton",
+      "default": "Découvrir le lecteur"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Lien personnalisé",
+      "info": "Prioritaire sur le lien du produit commun."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button_arrow",
+      "label": "Afficher la flèche",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "button_radius",
+      "label": "Arrondi du bouton",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_button_full",
+      "label": "Bouton pleine largeur sur mobile",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note sous le bouton",
+      "default": "Les nouvelles déclinaisons se dessinent. À suivre…"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page sur PC"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Largeur maximale du contenu",
+      "min": 900,
+      "max": 1600,
+      "step": 20,
+      "default": 1280,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Part de la colonne image",
+      "min": 35,
+      "max": 60,
+      "step": 1,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Largeur maximale des textes",
+      "min": 300,
+      "max": 700,
+      "step": 10,
+      "default": 480,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "desktop_order",
+      "label": "Ordre des colonnes",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "Image à gauche"
+        },
+        {
+          "value": "text_first",
+          "label": "Image à droite"
+        }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Alignement des textes",
+      "options": [
+        {
+          "value": "left",
+          "label": "À gauche"
+        },
+        {
+          "value": "center",
+          "label": "Centré"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "gap_desktop",
+      "label": "Espace entre les colonnes",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "content_gap",
+      "label": "Espace entre les contenus",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Espace en haut",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Espace en bas",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "default": 64,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_x",
+      "label": "Marges latérales",
+      "min": 16,
+      "max": 100,
+      "step": 2,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page sur mobile"
+    },
+    {
+      "type": "select",
+      "id": "mobile_order",
+      "label": "Ordre des contenus",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "Image puis textes"
+        },
+        {
+          "value": "text_first",
+          "label": "Textes puis image"
+        }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "select",
+      "id": "mobile_align",
+      "label": "Alignement des textes",
+      "options": [
+        {
+          "value": "left",
+          "label": "À gauche"
+        },
+        {
+          "value": "center",
+          "label": "Centré"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "Espace image / textes",
+      "min": 16,
+      "max": 64,
+      "step": 2,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Espace en haut",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 32,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Espace en bas",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_x_mobile",
+      "label": "Marges latérales",
+      "min": 12,
+      "max": 40,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Tailles de texte"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Grand titre sur PC",
+      "min": 28,
+      "max": 80,
+      "step": 2,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "label": "Grand titre sur mobile",
+      "min": 22,
+      "max": 56,
+      "step": 2,
+      "default": 34,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Titre de l’univers sur PC",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "default": 24,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size_mobile",
+      "label": "Titre de l’univers sur mobile",
+      "min": 16,
+      "max": 34,
+      "step": 1,
+      "default": 22,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Paragraphes sur PC",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Paragraphes sur mobile",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "label_size",
+      "label": "Surtitres",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "tab_size",
+      "label": "Onglets",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_size",
+      "label": "Bouton",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "small_size",
+      "label": "Note et légende",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "tab_radius",
+      "label": "Arrondi des onglets",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Fond de la section",
+      "default": "#572332"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Titres et onglets",
+      "default": "#fff7eb"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Paragraphes et note",
+      "default": "#e1c9c6"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Surtitres et mots en italique",
+      "default": "#dbb89d"
+    },
+    {
+      "type": "color",
+      "id": "tab_border",
+      "label": "Bordure des onglets",
+      "default": "#91616e"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_bg",
+      "label": "Fond de l’onglet actif",
+      "default": "#f4e8db"
+    },
+    {
+      "type": "color",
+      "id": "tab_active_text",
+      "label": "Texte de l’onglet actif",
+      "default": "#572332"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Fond du bouton",
+      "default": "#f5ece0"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Texte du bouton",
+      "default": "#572332"
+    },
+    {
+      "type": "color",
+      "id": "caption_bg",
+      "label": "Fond de la légende",
+      "default": "#483631"
+    },
+    {
+      "type": "color",
+      "id": "caption_color",
+      "label": "Texte de la légende",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "image_bg",
+      "label": "Fond du cadre image",
+      "default": "#e9e1d9"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "universe",
+      "name": "Univers",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Nom de l’onglet",
+          "default": "Nouvel univers"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Surtitre",
+          "default": "Un univers à découvrir"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Titre",
+          "default": "Une nouvelle inspiration."
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Présentez ici l’ambiance et l’histoire de cet univers.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Image de cet univers"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "info": "Priorité : cette image, la photo du produit de ce bloc, puis l’image commune."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Description de l’image",
+          "info": "Facultatif. Sinon, la description commune ou celle du média est utilisée."
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Légende",
+          "info": "Laissez vide pour reprendre la légende commune."
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_caption",
+          "label": "Masquer la légende",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Bouton de cet univers"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Produit",
+          "info": "Facultatif. Remplace le produit commun pour cet univers."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Texte du bouton",
+          "info": "Laissez vide pour reprendre le texte commun."
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Lien personnalisé",
+          "info": "Prioritaire sur le produit de cet univers, puis sur le lien et le produit communs."
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_button",
+          "label": "Masquer le bouton",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "note",
+          "label": "Note sous le bouton",
+          "info": "Laissez vide pour reprendre la note commune."
+        },
+        {
+          "type": "checkbox",
+          "id": "hide_note",
+          "label": "Masquer la note",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Univers musicaux",
+      "blocks": [
+        {
+          "type": "universe",
+          "settings": {
+            "title": "Noël",
+            "eyebrow": "La première inspiration",
+            "heading": "La magie des retrouvailles.",
+            "description": "<p>Les lumières s’allument, les proches se retrouvent. L’univers Noël invite la musique dans les moments de fête.</p>"
+          }
+        },
+        {
+          "type": "universe",
+          "settings": {
+            "title": "Saint-Valentin",
+            "eyebrow": "Un univers envisagé",
+            "heading": "Les chansons qui parlent de vous.",
+            "description": "<p>Une future inspiration autour de l’amour, des souvenirs à deux et des attentions qui viennent du cœur.</p>"
+          }
+        },
+        {
+          "type": "universe",
+          "settings": {
+            "title": "Ramadan",
+            "eyebrow": "Un univers envisagé",
+            "heading": "Des instants de partage.",
+            "description": "<p>Une déclinaison envisagée pour accompagner les soirées de retrouvailles et les attentions offertes pendant le Ramadan.</p>"
+          }
+        },
+        {
+          "type": "universe",
+          "settings": {
+            "title": "Jazz",
+            "eyebrow": "Un univers envisagé",
+            "heading": "Une note de douceur.",
+            "description": "<p>Une inspiration jazz à explorer pour les amateurs de mélodies feutrées et de moments tranquilles à la maison.</p>"
+          }
+        },
+        {
+          "type": "universe",
+          "settings": {
+            "title": "Rock",
+            "eyebrow": "Un univers envisagé",
+            "heading": "La maison donne le rythme.",
+            "description": "<p>Une future inspiration dédiée à l’énergie du rock et aux morceaux qui traversent les générations.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
