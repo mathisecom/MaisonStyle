@@ -129,7 +129,7 @@
           "settings": {
             "text": "+3.000 Clients Satisfaits",
             "heading_tag": "h4",
-            "text_color": "#642B38",
+            "text_color": "#642b38",
             "gradient": ""
           }
         }
@@ -221,9 +221,9 @@
         "card_width_desktop": 130,
         "card_width_mobile": 130,
         "heading_color": "#121212",
-        "layout_bg_color": "#FBF9F5",
+        "layout_bg_color": "#fbf9f5",
         "layout_border_color": "#121212",
-        "background_color": "#FBF9F5",
+        "background_color": "#fbf9f5",
         "border_color": "#121212",
         "margin_top": 0,
         "margin_bottom": 0,
@@ -373,6 +373,113 @@
         "mobile_image_radius": 4
       }
     },
+    "tableauvs_xwji3H": {
+      "type": "tableauvs",
+      "blocks": {
+        "row_BkpMdW": {
+          "type": "row",
+          "settings": {
+            "feature": "Une idée qui sort de l'ordinaire",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": false
+          }
+        },
+        "row_qwdtnk": {
+          "type": "row",
+          "settings": {
+            "feature": "Apporte du caractère à la maison",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": true
+          }
+        },
+        "row_UQeWDF": {
+          "type": "row",
+          "settings": {
+            "feature": "Parfait pour faire plaisir",
+            "column_1_value": true,
+            "column_2_value": true,
+            "column_3_value": false
+          }
+        },
+        "row_qUqNAd": {
+          "type": "row",
+          "settings": {
+            "feature": "S'intègre facilement à votre intérieur",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": true
+          }
+        },
+        "row_HyN6qV": {
+          "type": "row",
+          "settings": {
+            "feature": "Une sélection pensée avec soin",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": false
+          }
+        },
+        "row_gNah97": {
+          "type": "row",
+          "settings": {
+            "feature": "À offrir ou à garder pour soi",
+            "column_1_value": true,
+            "column_2_value": true,
+            "column_3_value": false
+          }
+        }
+      },
+      "block_order": [
+        "row_BkpMdW",
+        "row_qwdtnk",
+        "row_UQeWDF",
+        "row_qUqNAd",
+        "row_HyN6qV",
+        "row_gNah97"
+      ],
+      "name": "Tableau comparatif",
+      "settings": {
+        "eyebrow": "",
+        "title": "Pourquoi choisir l'ordinaire ?",
+        "column_1": "NOTRE SÉLECTION",
+        "column_2": "CADEAU CLASSIQUE",
+        "column_3": "DÉCO STANDARD",
+        "background_color": "#FAF8F4",
+        "text_color": "#271F1A",
+        "muted_color": "#9A8B80",
+        "accent_color": "#642B38",
+        "accent_text_color": "#FFFFFF",
+        "highlight_color": "#642B38",
+        "border_color": "#DED8D2",
+        "check_color": "#FFFFFF",
+        "cross_color": "#C9C4BF",
+        "eyebrow_size": 11,
+        "title_size": 36,
+        "title_weight": "600",
+        "max_width": 1200,
+        "table_width": 900,
+        "header_spacing": 35,
+        "column_size": 10,
+        "row_text_size": 15,
+        "icon_size": 18,
+        "header_height": 60,
+        "row_height": 55,
+        "highlight_radius": 4,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "mobile_eyebrow_size": 9,
+        "mobile_title_size": 26,
+        "mobile_column_size": 8,
+        "mobile_row_size": 13,
+        "mobile_icon_size": 18,
+        "mobile_row_height": 60,
+        "mobile_header_spacing": 25,
+        "mobile_padding_top": 35,
+        "mobile_padding_bottom": 35
+      }
+    },
     "faq_WDHyB8": {
       "type": "faq",
       "blocks": {
@@ -433,6 +540,7 @@
     "logooscroll_WfrBPx",
     "testimonials_WQT43z",
     "imgtexte_phxW3i",
+    "tableauvs_xwji3H",
     "faq_WDHyB8"
   ]
 }
