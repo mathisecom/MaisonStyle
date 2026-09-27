@@ -17,13 +17,21 @@
         "message": {
           "type": "message",
           "settings": {
+            "text": "Livraison Gratuite dès 60€",
+            "url": ""
+          }
+        },
+        "message_8PPttB": {
+          "type": "message",
+          "settings": {
             "text": "Announce something here",
             "url": ""
           }
         }
       },
       "block_order": [
-        "message"
+        "message",
+        "message_8PPttB"
       ],
       "settings": {
         "enable_sticky": false,
