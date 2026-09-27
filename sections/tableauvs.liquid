@@ -1,0 +1,1056 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500;600;700&display=swap');
+</style>
+
+{% style %}
+
+  #shopify-section-{{ section.id }} {
+    --vs-bg: {{ section.settings.background_color }};
+    --vs-text: {{ section.settings.text_color }};
+    --vs-muted: {{ section.settings.muted_color }};
+    --vs-accent: {{ section.settings.accent_color }};
+    --vs-accent-text: {{ section.settings.accent_text_color }};
+    --vs-highlight: {{ section.settings.highlight_color }};
+    --vs-border: {{ section.settings.border_color }};
+    --vs-check: {{ section.settings.check_color }};
+    --vs-cross: {{ section.settings.cross_color }};
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs {
+    width: 100%;
+    background: var(--vs-bg);
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__inner {
+    width: 100%;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+
+    padding:
+      {{ section.settings.padding_top }}px
+      30px
+      {{ section.settings.padding_bottom }}px;
+  }
+
+
+  /* ==============================
+     ENTÊTE
+  ============================== */
+
+  #shopify-section-{{ section.id }} .mp-vs__header {
+    text-align: center;
+
+    max-width: 900px;
+    margin: 0 auto {{ section.settings.header_spacing }}px;
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__eyebrow {
+    margin: 0 0 14px;
+
+    color: var(--vs-muted);
+
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.eyebrow_size }}px;
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__title {
+    margin: 0;
+
+    color: var(--vs-text);
+
+    font-family: "Azeret Mono", monospace !important;
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: {{ section.settings.title_weight }};
+
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+  }
+
+
+  /* ==============================
+     TABLEAU
+  ============================== */
+
+  #shopify-section-{{ section.id }} .mp-vs__table-wrap {
+    width: 100%;
+    max-width: {{ section.settings.table_width }}px;
+
+    margin: 0 auto;
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__table {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(250px, 2fr)
+      repeat(3, minmax(130px, 1fr));
+
+    align-items: stretch;
+  }
+
+
+  /* ==============================
+     HEADER COLONNES
+  ============================== */
+
+  #shopify-section-{{ section.id }} .mp-vs__corner {
+    border-bottom: 1px solid var(--vs-border);
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__column-head {
+    min-height: {{ section.settings.header_height }}px;
+
+    padding: 14px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: var(--vs-muted);
+
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.column_size }}px;
+    font-weight: 500;
+
+    line-height: 1.15;
+
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+
+    border-bottom: 1px solid var(--vs-border);
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__column-head--featured {
+    background: var(--vs-accent);
+    color: var(--vs-accent-text);
+
+    border-radius:
+      {{ section.settings.highlight_radius }}px
+      {{ section.settings.highlight_radius }}px
+      0
+      0;
+
+    border-bottom-color: var(--vs-accent);
+  }
+
+
+  /* ==============================
+     LIGNES
+  ============================== */
+
+  #shopify-section-{{ section.id }} .mp-vs__feature {
+    min-height: {{ section.settings.row_height }}px;
+
+    padding: 14px 20px 14px 0;
+
+    display: flex;
+    align-items: center;
+
+    color: var(--vs-text);
+
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.row_text_size }}px;
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    border-bottom: 1px solid var(--vs-border);
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__value {
+    min-height: {{ section.settings.row_height }}px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+
+    border-bottom: 1px solid var(--vs-border);
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__value--featured {
+    background: var(--vs-highlight);
+  }
+
+
+  /* ==============================
+     ICÔNES
+  ============================== */
+
+  #shopify-section-{{ section.id }} .mp-vs__icon {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__icon--yes {
+    color: var(--vs-check);
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__icon--yes svg {
+    stroke: currentColor;
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__icon--no {
+    color: var(--vs-cross);
+  }
+
+  #shopify-section-{{ section.id }} .mp-vs__icon--no svg {
+    stroke: currentColor;
+  }
+
+
+  /* ==============================
+     TABLETTE
+  ============================== */
+
+  @media screen and (max-width: 989px) {
+
+    #shopify-section-{{ section.id }} .mp-vs__inner {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__title {
+      font-size: calc({{ section.settings.title_size }}px * 0.82);
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__table {
+      grid-template-columns:
+        minmax(210px, 1.8fr)
+        repeat(3, minmax(110px, 1fr));
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__feature {
+      font-size: calc({{ section.settings.row_text_size }}px - 1px);
+    }
+
+  }
+
+
+  /* ==============================
+     MOBILE
+  ============================== */
+
+  @media screen and (max-width: 749px) {
+
+    #shopify-section-{{ section.id }} .mp-vs__inner {
+      padding:
+        {{ section.settings.mobile_padding_top }}px
+        12px
+        {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__header {
+      margin-bottom: {{ section.settings.mobile_header_spacing }}px;
+      padding: 0 8px;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__eyebrow {
+      margin-bottom: 10px;
+
+      font-size: {{ section.settings.mobile_eyebrow_size }}px;
+      letter-spacing: 0.20em;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__title {
+      font-size: {{ section.settings.mobile_title_size }}px;
+      line-height: 1.14;
+      letter-spacing: -0.035em;
+    }
+
+
+    /* Tableau entièrement visible */
+    #shopify-section-{{ section.id }} .mp-vs__table {
+      grid-template-columns:
+        46%
+        18%
+        18%
+        18%;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__column-head {
+      min-height: 56px;
+
+      padding: 8px 3px;
+
+      font-size: {{ section.settings.mobile_column_size }}px;
+
+      letter-spacing: 0.03em;
+
+      word-break: normal;
+      overflow-wrap: anywhere;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__feature {
+      min-height: {{ section.settings.mobile_row_height }}px;
+
+      padding: 11px 8px 11px 0;
+
+      font-size: {{ section.settings.mobile_row_size }}px;
+      line-height: 1.28;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__value {
+      min-height: {{ section.settings.mobile_row_height }}px;
+
+      padding: 8px 4px;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__icon {
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+    }
+
+  }
+
+
+  /* ==============================
+     PETITS MOBILES
+  ============================== */
+
+  @media screen and (max-width: 370px) {
+
+    #shopify-section-{{ section.id }} .mp-vs__inner {
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__title {
+      font-size: calc({{ section.settings.mobile_title_size }}px - 2px);
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__column-head {
+      font-size: calc({{ section.settings.mobile_column_size }}px - 1px);
+    }
+
+    #shopify-section-{{ section.id }} .mp-vs__feature {
+      font-size: calc({{ section.settings.mobile_row_size }}px - 1px);
+    }
+
+  }
+
+{% endstyle %}
+
+
+<section class="mp-vs">
+
+  <div class="mp-vs__inner">
+
+
+    <!-- ENTÊTE -->
+    <div class="mp-vs__header">
+
+      {% if section.settings.eyebrow != blank %}
+        <p class="mp-vs__eyebrow">
+          {{ section.settings.eyebrow }}
+        </p>
+      {% endif %}
+
+      {% if section.settings.title != blank %}
+        <h2 class="mp-vs__title">
+          {{ section.settings.title }}
+        </h2>
+      {% endif %}
+
+    </div>
+
+
+    <!-- TABLEAU -->
+    <div class="mp-vs__table-wrap">
+
+      <div class="mp-vs__table">
+
+
+        <!-- HEADERS -->
+
+        <div class="mp-vs__corner"></div>
+
+
+        <div class="mp-vs__column-head mp-vs__column-head--featured">
+          {{ section.settings.column_1 }}
+        </div>
+
+
+        <div class="mp-vs__column-head">
+          {{ section.settings.column_2 }}
+        </div>
+
+
+        <div class="mp-vs__column-head">
+          {{ section.settings.column_3 }}
+        </div>
+
+
+
+        <!-- LIGNES -->
+
+        {% for block in section.blocks %}
+
+          <div
+            class="mp-vs__feature"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.feature }}
+          </div>
+
+
+          <!-- COLONNE 1 -->
+
+          <div class="mp-vs__value mp-vs__value--featured">
+
+            {% if block.settings.column_1_value %}
+
+              <span class="mp-vs__icon mp-vs__icon--yes">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.2 4.2L19 7"></path>
+                </svg>
+
+              </span>
+
+            {% else %}
+
+              <span class="mp-vs__icon mp-vs__icon--no">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6l12 12"></path>
+                  <path d="M18 6L6 18"></path>
+                </svg>
+
+              </span>
+
+            {% endif %}
+
+          </div>
+
+
+          <!-- COLONNE 2 -->
+
+          <div class="mp-vs__value">
+
+            {% if block.settings.column_2_value %}
+
+              <span class="mp-vs__icon mp-vs__icon--yes">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.2 4.2L19 7"></path>
+                </svg>
+
+              </span>
+
+            {% else %}
+
+              <span class="mp-vs__icon mp-vs__icon--no">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6l12 12"></path>
+                  <path d="M18 6L6 18"></path>
+                </svg>
+
+              </span>
+
+            {% endif %}
+
+          </div>
+
+
+          <!-- COLONNE 3 -->
+
+          <div class="mp-vs__value">
+
+            {% if block.settings.column_3_value %}
+
+              <span class="mp-vs__icon mp-vs__icon--yes">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12.5l4.2 4.2L19 7"></path>
+                </svg>
+
+              </span>
+
+            {% else %}
+
+              <span class="mp-vs__icon mp-vs__icon--no">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 6l12 12"></path>
+                  <path d="M18 6L6 18"></path>
+                </svg>
+
+              </span>
+
+            {% endif %}
+
+          </div>
+
+
+        {% endfor %}
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Tableau comparatif",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Textes"
+    },
+
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit texte",
+      "default": "COMPARAISON SIMPLE"
+    },
+
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Pourquoi choisir l'ordinaire ?"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colonnes"
+    },
+
+    {
+      "type": "text",
+      "id": "column_1",
+      "label": "Colonne principale",
+      "default": "NOTRE SÉLECTION"
+    },
+
+    {
+      "type": "text",
+      "id": "column_2",
+      "label": "Colonne 2",
+      "default": "CADEAU CLASSIQUE"
+    },
+
+    {
+      "type": "text",
+      "id": "column_3",
+      "label": "Colonne 3",
+      "default": "DÉCO STANDARD"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#FAF8F4"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#2C231E"
+    },
+
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Texte secondaire",
+      "default": "#9A8B80"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Colonne principale",
+      "default": "#A96443"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_text_color",
+      "label": "Texte colonne",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Fond colonne",
+      "default": "#F3E8E1"
+    },
+
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Lignes",
+      "default": "#DED8D2"
+    },
+
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Coches",
+      "default": "#A96443"
+    },
+
+    {
+      "type": "color",
+      "id": "cross_color",
+      "label": "Croix",
+      "default": "#C9C4BF"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Titre"
+    },
+
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Petit texte PC",
+      "default": 11
+    },
+
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Titre PC",
+      "default": 36
+    },
+
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Épaisseur titre",
+      "default": "600",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Moyen"
+        },
+        {
+          "value": "600",
+          "label": "Semi-gras"
+        },
+        {
+          "value": "700",
+          "label": "Gras"
+        }
+      ]
+    },
+
+
+    {
+      "type": "header",
+      "content": "Tableau PC"
+    },
+
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur section",
+      "default": 1200
+    },
+
+    {
+      "type": "range",
+      "id": "table_width",
+      "min": 700,
+      "max": 1200,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur tableau",
+      "default": 900
+    },
+
+    {
+      "type": "range",
+      "id": "header_spacing",
+      "min": 20,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Espace sous titre",
+      "default": 35
+    },
+
+    {
+      "type": "range",
+      "id": "column_size",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Titre colonnes",
+      "default": 10
+    },
+
+    {
+      "type": "range",
+      "id": "row_text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte lignes",
+      "default": 15
+    },
+
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille icônes",
+      "default": 18
+    },
+
+    {
+      "type": "range",
+      "id": "header_height",
+      "min": 45,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Hauteur entête",
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "row_height",
+      "min": 45,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Hauteur lignes",
+      "default": 55
+    },
+
+    {
+      "type": "range",
+      "id": "highlight_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrondi colonne",
+      "default": 4
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 50
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 50
+    },
+
+
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_eyebrow_size",
+      "min": 8,
+      "max": 14,
+      "step": 1,
+      "unit": "px",
+      "label": "Petit texte mobile",
+      "default": 9
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "min": 20,
+      "max": 38,
+      "step": 1,
+      "unit": "px",
+      "label": "Titre mobile",
+      "default": 26
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_column_size",
+      "min": 7,
+      "max": 12,
+      "step": 1,
+      "unit": "px",
+      "label": "Colonnes mobile",
+      "default": 8
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_row_size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte lignes mobile",
+      "default": 12
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Icônes mobile",
+      "default": 16
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_row_height",
+      "min": 48,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "label": "Hauteur lignes mobile",
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_header_spacing",
+      "min": 15,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "label": "Espace titre mobile",
+      "default": 25
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge haute mobile",
+      "default": 35
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge basse mobile",
+      "default": 35
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "row",
+      "name": "Ligne",
+
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Critère",
+          "default": "Une idée originale"
+        },
+
+        {
+          "type": "checkbox",
+          "id": "column_1_value",
+          "label": "Colonne principale ✓",
+          "default": true
+        },
+
+        {
+          "type": "checkbox",
+          "id": "column_2_value",
+          "label": "Colonne 2 ✓",
+          "default": false
+        },
+
+        {
+          "type": "checkbox",
+          "id": "column_3_value",
+          "label": "Colonne 3 ✓",
+          "default": false
+        }
+
+      ]
+
+    }
+
+  ],
+
+
+  "max_blocks": 12,
+
+
+  "presets": [
+
+    {
+      "name": "Tableau comparatif",
+
+      "blocks": [
+
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Une idée qui sort de l'ordinaire",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": false
+          }
+        },
+
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Apporte du caractère à la maison",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": true
+          }
+        },
+
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Parfait pour faire plaisir",
+            "column_1_value": true,
+            "column_2_value": true,
+            "column_3_value": false
+          }
+        },
+
+        {
+          "type": "row",
+          "settings": {
+            "feature": "S'intègre facilement à votre intérieur",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": true
+          }
+        },
+
+        {
+          "type": "row",
+          "settings": {
+            "feature": "Une sélection pensée avec soin",
+            "column_1_value": true,
+            "column_2_value": false,
+            "column_3_value": false
+          }
+        },
+
+        {
+          "type": "row",
+          "settings": {
+            "feature": "À offrir ou à garder pour soi",
+            "column_1_value": true,
+            "column_2_value": true,
+            "column_3_value": false
+          }
+        }
+
+      ]
+
+    }
+
+  ]
+
+}
+{% endschema %}
