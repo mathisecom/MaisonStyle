@@ -24,14 +24,22 @@
         "message_8PPttB": {
           "type": "message",
           "settings": {
-            "text": "Announce something here",
+            "text": "Paiement Rapide & Sécurisé",
+            "url": ""
+          }
+        },
+        "message_JfH8N6": {
+          "type": "message",
+          "settings": {
+            "text": "Retours sous 30 Jours",
             "url": ""
           }
         }
       },
       "block_order": [
         "message",
-        "message_8PPttB"
+        "message_8PPttB",
+        "message_JfH8N6"
       ],
       "settings": {
         "enable_sticky": false,
