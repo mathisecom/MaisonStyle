@@ -30,6 +30,12 @@
             "show_taxes_notice": false
           }
         },
+        "liquid_cxyMrp": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div class=\"benefits-list\">\n\n  <div class=\"benefit-item\">\n    <span class=\"benefit-icon\">\n      <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n        <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n        <path d=\"M8 12.5l2.5 2.5L16 9.5\"></path>\n      </svg>\n    </span>\n\n    <span class=\"benefit-text\">\n      Une façon originale d’écouter vos morceaux\n    </span>\n  </div>\n\n\n  <div class=\"benefit-item\">\n    <span class=\"benefit-icon\">\n      <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n        <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n        <path d=\"M8 12.5l2.5 2.5L16 9.5\"></path>\n      </svg>\n    </span>\n\n    <span class=\"benefit-text\">\n      Le cadeau parfait à offrir\n    </span>\n  </div>\n\n\n  <div class=\"benefit-item\">\n    <span class=\"benefit-icon\">\n      <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n        <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n        <path d=\"M8 12.5l2.5 2.5L16 9.5\"></path>\n      </svg>\n    </span>\n\n    <span class=\"benefit-text\">\n      Une déco musicale unique\n    </span>\n  </div>\n\n</div>\n\n\n<style>\n  .benefits-list {\n    display: flex;\n    flex-direction: column;\n    gap: 18px;\n\n    width: 100%;\n  }\n\n  .benefit-item {\n    display: flex;\n    align-items: center;\n\n    gap: 14px;\n\n    color: #222222;\n\n    font-family: inherit;\n    font-size: 18px;\n    line-height: 1.35;\n  }\n\n  .benefit-icon {\n    width: 34px;\n    height: 34px;\n\n    flex: 0 0 34px;\n\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n    color: #222222;\n  }\n\n  .benefit-icon svg {\n    width: 100%;\n    height: 100%;\n\n    fill: none;\n    stroke: currentColor;\n    stroke-width: 1.8;\n    stroke-linecap: round;\n    stroke-linejoin: round;\n  }\n\n  .benefit-text {\n    display: block;\n  }\n\n\n  @media screen and (max-width: 749px) {\n\n    .benefits-list {\n      gap: 14px;\n    }\n\n    .benefit-item {\n      gap: 11px;\n\n      font-size: 15px;\n    }\n\n    .benefit-icon {\n      width: 28px;\n      height: 28px;\n\n      flex-basis: 28px;\n    }\n\n  }\n</style>"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -89,6 +95,7 @@
         "liquid_zxDfAX",
         "title",
         "price",
+        "liquid_cxyMrp",
         "variant_picker",
         "quantity_selector",
         "liquid_C9cNPE",
@@ -446,15 +453,15 @@
         "column_1": "NOTRE SÉLECTION",
         "column_2": "CADEAU CLASSIQUE",
         "column_3": "DÉCO STANDARD",
-        "background_color": "#FAF8F4",
-        "text_color": "#271F1A",
-        "muted_color": "#9A8B80",
-        "accent_color": "#642B38",
-        "accent_text_color": "#FFFFFF",
-        "highlight_color": "#642B38",
-        "border_color": "#DED8D2",
-        "check_color": "#FFFFFF",
-        "cross_color": "#C9C4BF",
+        "background_color": "#faf8f4",
+        "text_color": "#271f1a",
+        "muted_color": "#9a8b80",
+        "accent_color": "#642b38",
+        "accent_text_color": "#ffffff",
+        "highlight_color": "#642b38",
+        "border_color": "#ded8d2",
+        "check_color": "#ffffff",
+        "cross_color": "#c9c4bf",
         "eyebrow_size": 11,
         "title_size": 36,
         "title_weight": "600",
