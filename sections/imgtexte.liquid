@@ -1,0 +1,771 @@
+{% style %}
+
+  #shopify-section-{{ section.id }} {
+    --editorial-bg: {{ section.settings.background_color }};
+    --editorial-text: {{ section.settings.text_color }};
+    --editorial-accent: {{ section.settings.accent_color }};
+    --editorial-check: {{ section.settings.check_color }};
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product {
+    width: 100%;
+    background: var(--editorial-bg);
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__inner {
+    width: 100%;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+
+    gap: {{ section.settings.desktop_gap }}px;
+
+    padding:
+      {{ section.settings.padding_top }}px
+      40px
+      {{ section.settings.padding_bottom }}px;
+  }
+
+  /* ===============================
+     TEXTE
+  ================================ */
+
+  #shopify-section-{{ section.id }} .editorial-product__content {
+    width: 100%;
+    max-width: 560px;
+    justify-self: center;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__eyebrow {
+    margin: 0 0 18px;
+
+    color: var(--editorial-accent);
+
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.eyebrow_size }}px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    letter-spacing: {{ section.settings.eyebrow_spacing | divided_by: 10.0 }}em;
+    text-transform: uppercase;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__heading {
+    margin: 0;
+
+    color: var(--editorial-text);
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 600);
+
+    font-size: {{ section.settings.heading_size }}px;
+    line-height: 1.05;
+
+    letter-spacing: -0.025em;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__heading-accent {
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--editorial-accent);
+
+    font-family: var(--font-heading-family, inherit);
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+
+    {% if section.settings.accent_italic %}
+      font-style: italic;
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__description {
+    margin-top: 22px;
+
+    max-width: 520px;
+
+    color: var(--editorial-text);
+
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+
+    font-size: {{ section.settings.body_size }}px;
+    line-height: 1.65;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__description p {
+    margin: 0;
+  }
+
+  /* ===============================
+     AVANTAGES
+  ================================ */
+
+  #shopify-section-{{ section.id }} .editorial-product__benefits {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin-top: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__benefit {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    color: var(--editorial-text);
+
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.benefit_size }}px;
+    line-height: 1.45;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__check {
+    width: 16px;
+    height: 16px;
+
+    flex: 0 0 16px;
+
+    margin-top: 2px;
+
+    color: var(--editorial-check);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__check svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ===============================
+     IMAGE
+  ================================ */
+
+  #shopify-section-{{ section.id }} .editorial-product__media {
+    width: 100%;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__image-wrapper {
+    width: 100%;
+
+    border-radius: {{ section.settings.image_radius }}px;
+    overflow: hidden;
+
+    {% if section.settings.image_shadow %}
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+    {% endif %}
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__placeholder {
+    width: 100%;
+    aspect-ratio: 1.1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f3f0eb;
+
+    color: rgba(0, 0, 0, 0.35);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-product__placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+
+
+  /* ===============================
+     TABLETTE
+  ================================ */
+
+  @media screen and (max-width: 989px) {
+
+    #shopify-section-{{ section.id }} .editorial-product__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+      gap: 35px;
+
+      padding-left: 25px;
+      padding-right: 25px;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__heading {
+      font-size: calc({{ section.settings.heading_size }}px * 0.82);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__description {
+      font-size: calc({{ section.settings.body_size }}px - 1px);
+    }
+
+  }
+
+
+  /* ===============================
+     MOBILE
+  ================================ */
+
+  @media screen and (max-width: 749px) {
+
+    #shopify-section-{{ section.id }} .editorial-product__inner {
+      display: flex;
+      flex-direction: column;
+
+      gap: 30px;
+
+      padding:
+        {{ section.settings.mobile_padding_top }}px
+        20px
+        {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    {% if section.settings.mobile_image_first %}
+      #shopify-section-{{ section.id }} .editorial-product__media {
+        order: 1;
+      }
+
+      #shopify-section-{{ section.id }} .editorial-product__content {
+        order: 2;
+      }
+    {% else %}
+      #shopify-section-{{ section.id }} .editorial-product__content {
+        order: 1;
+      }
+
+      #shopify-section-{{ section.id }} .editorial-product__media {
+        order: 2;
+      }
+    {% endif %}
+
+    #shopify-section-{{ section.id }} .editorial-product__content {
+      max-width: none;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__eyebrow {
+      margin-bottom: 13px;
+
+      font-size: {{ section.settings.mobile_eyebrow_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__heading {
+      font-size: {{ section.settings.mobile_heading_size }}px;
+      line-height: 1.08;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__description {
+      margin-top: 18px;
+
+      max-width: none;
+
+      font-size: {{ section.settings.mobile_body_size }}px;
+      line-height: 1.6;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__benefits {
+      margin-top: 20px;
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__benefit {
+      font-size: {{ section.settings.mobile_benefit_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-product__image-wrapper {
+      border-radius: {{ section.settings.mobile_image_radius }}px;
+    }
+
+  }
+
+{% endstyle %}
+
+
+<section class="editorial-product">
+
+  <div class="editorial-product__inner">
+
+    <!-- TEXTE -->
+    <div class="editorial-product__content">
+
+      {% if section.settings.eyebrow != blank %}
+        <p class="editorial-product__eyebrow">
+          {{ section.settings.eyebrow }}
+        </p>
+      {% endif %}
+
+
+      {% if section.settings.heading != blank or section.settings.heading_accent != blank %}
+
+        <h2 class="editorial-product__heading">
+
+          {% if section.settings.heading != blank %}
+            {{ section.settings.heading }}
+          {% endif %}
+
+          {% if section.settings.heading_accent != blank %}
+            <span class="editorial-product__heading-accent">
+              {{ section.settings.heading_accent }}
+            </span>
+          {% endif %}
+
+        </h2>
+
+      {% endif %}
+
+
+      {% if section.settings.description != blank %}
+
+        <div class="editorial-product__description">
+          {{ section.settings.description }}
+        </div>
+
+      {% endif %}
+
+
+      {% if section.blocks.size > 0 %}
+
+        <div class="editorial-product__benefits">
+
+          {% for block in section.blocks %}
+
+            <div
+              class="editorial-product__benefit"
+              {{ block.shopify_attributes }}
+            >
+
+              <span class="editorial-product__check">
+
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12.5l4.2 4.2L19 7"></path>
+                </svg>
+
+              </span>
+
+              <span>
+                {{ block.settings.text }}
+              </span>
+
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+
+    <!-- IMAGE -->
+    <div class="editorial-product__media">
+
+      <div class="editorial-product__image-wrapper">
+
+        {% if section.settings.image != blank %}
+
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag:
+              class: 'editorial-product__image',
+              loading: 'lazy',
+              widths: '400, 600, 800, 1000, 1200, 1600',
+              sizes: '(max-width: 749px) 100vw, 55vw'
+          }}
+
+        {% else %}
+
+          <div class="editorial-product__placeholder">
+            {{ 'image' | placeholder_svg_tag }}
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Produit éditorial",
+  "settings": [
+
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Petit texte supérieur",
+      "default": "LE CADEAU QUI FAIT LA DIFFÉRENCE"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "default": "Certains cadeaux s'oublient."
+    },
+
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Titre coloré",
+      "default": "Celui-ci marque les esprits."
+    },
+
+    {
+      "type": "checkbox",
+      "id": "accent_italic",
+      "label": "Titre coloré en italique",
+      "default": true
+    },
+
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Une idée originale pensée pour créer un vrai moment de plaisir. Un objet décoratif qui trouve naturellement sa place dans la maison et qui devient aussi une belle attention à offrir.</p>"
+    },
+
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#24201D"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Couleur d'accent",
+      "default": "#B66542"
+    },
+
+    {
+      "type": "color",
+      "id": "check_color",
+      "label": "Couleur des coches",
+      "default": "#B66542"
+    },
+
+    {
+      "type": "header",
+      "content": "Dimensions PC"
+    },
+
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 1300
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Espace texte / image",
+      "default": 65
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 140,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 50
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 140,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 50
+    },
+
+    {
+      "type": "range",
+      "id": "eyebrow_size",
+      "min": 9,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Petit texte",
+      "default": 11
+    },
+
+    {
+      "type": "range",
+      "id": "eyebrow_spacing",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "label": "Espacement lettres",
+      "default": 18
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Taille du titre",
+      "default": 42
+    },
+
+    {
+      "type": "range",
+      "id": "body_size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Description",
+      "default": 17
+    },
+
+    {
+      "type": "range",
+      "id": "benefit_size",
+      "min": 13,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Avantages",
+      "default": 15
+    },
+
+    {
+      "type": "header",
+      "content": "Image"
+    },
+
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi PC",
+      "default": 4
+    },
+
+    {
+      "type": "checkbox",
+      "id": "image_shadow",
+      "label": "Ajouter une ombre",
+      "default": false
+    },
+
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "mobile_image_first",
+      "label": "Afficher l'image en premier",
+      "default": true
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge haute mobile",
+      "default": 35
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge basse mobile",
+      "default": 35
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_eyebrow_size",
+      "min": 9,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Petit texte mobile",
+      "default": 10
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "min": 26,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Titre mobile",
+      "default": 34
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_body_size",
+      "min": 13,
+      "max": 19,
+      "step": 1,
+      "unit": "px",
+      "label": "Description mobile",
+      "default": 15
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_benefit_size",
+      "min": 13,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Avantages mobile",
+      "default": 14
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_image_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrondi mobile",
+      "default": 4
+    }
+
+  ],
+
+  "blocks": [
+
+    {
+      "type": "benefit",
+      "name": "Avantage",
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Une idée cadeau originale et pleine de caractère"
+        }
+
+      ]
+    }
+
+  ],
+
+  "max_blocks": 6,
+
+  "presets": [
+
+    {
+      "name": "Produit éditorial",
+      "blocks": [
+
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Une idée cadeau originale et pleine de caractère"
+          }
+        },
+
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "Pensé pour embellir votre intérieur"
+          }
+        },
+
+        {
+          "type": "benefit",
+          "settings": {
+            "text": "À offrir ou simplement pour se faire plaisir"
+          }
+        }
+
+      ]
+    }
+
+  ]
+}
+{% endschema %}
