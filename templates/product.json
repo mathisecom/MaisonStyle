@@ -273,8 +273,8 @@
         "mobile_padding_top": 35,
         "mobile_padding_bottom": 35,
         "mobile_eyebrow_size": 10,
-        "mobile_heading_size": 30,
-        "mobile_body_size": 14,
+        "mobile_heading_size": 28,
+        "mobile_body_size": 13,
         "mobile_benefit_size": 13,
         "mobile_image_radius": 4
       }
