@@ -41,10 +41,10 @@
       ],
       "name": "Atouts maison",
       "settings": {
-        "background_color": "#F8F5F0",
-        "text_color": "#5B402F",
-        "icon_color": "#A96E49",
-        "border_color": "#DDD4C9",
+        "background_color": "#f8f5f0",
+        "text_color": "#5b402f",
+        "icon_color": "#a96e49",
+        "border_color": "#ddd4c9",
         "max_width": 1600,
         "font_size": 17,
         "font_weight": "400",
@@ -234,9 +234,31 @@
           "settings": {
             "round_avatar": true,
             "show_rating": true,
-            "rating": 4,
+            "rating": 5,
             "author": "Joshua A.",
             "title": "Testimonial 3",
+            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+          }
+        },
+        "testimonial_UzX44P": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 4,
+            "author": "",
+            "title": "Testimonial",
+            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
+          }
+        },
+        "testimonial_U8VieX": {
+          "type": "testimonial",
+          "settings": {
+            "round_avatar": true,
+            "show_rating": true,
+            "rating": 4,
+            "author": "",
+            "title": "Testimonial",
             "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>"
           }
         }
@@ -244,7 +266,9 @@
       "block_order": [
         "testimonial_hqcmW7",
         "testimonial_cMzYP3",
-        "testimonial_Krk8H7"
+        "testimonial_Krk8H7",
+        "testimonial_UzX44P",
+        "testimonial_U8VieX"
       ],
       "name": "Testimonials",
       "settings": {
