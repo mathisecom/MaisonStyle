@@ -115,6 +115,98 @@
         "input_text_color": ""
       }
     },
+    "logooscroll_WfrBPx": {
+      "type": "logooscroll",
+      "blocks": {
+        "image_wkfRGc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_97.png",
+            "url": ""
+          }
+        },
+        "image_bnAAjU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_98.png",
+            "url": ""
+          }
+        },
+        "image_q9PzUd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_99.png",
+            "url": ""
+          }
+        },
+        "image_W67Qnk": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_100.png",
+            "url": ""
+          }
+        },
+        "image_KNzngW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-09-27T174553.309.png",
+            "url": ""
+          }
+        },
+        "image_7jdGBj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/BANNER_MOBILE_-_2026-09-27T174600.496.png",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_wkfRGc",
+        "image_bnAAjU",
+        "image_q9PzUd",
+        "image_W67Qnk",
+        "image_KNzngW",
+        "image_7jdGBj"
+      ],
+      "name": "SS - Scrolling logo cloud #5",
+      "settings": {
+        "layout_radius": 30,
+        "layout_border_thickness": 0,
+        "heading": "",
+        "heading_custom": false,
+        "heading_font": "josefin_sans_n4",
+        "heading_size": 18,
+        "heading_size_mobile": 18,
+        "heading_height": 130,
+        "scrolling_velocity": 18,
+        "scrolling_velocity_mobile": 18,
+        "scrolling_direction": "left",
+        "pause_hover": false,
+        "scrolling_gap": 70,
+        "scrolling_gap_mobile": 30,
+        "card_width_desktop": 130,
+        "card_width_mobile": 130,
+        "heading_color": "#121212",
+        "layout_bg_color": "#FBF9F5",
+        "layout_border_color": "#121212",
+        "background_color": "#FBF9F5",
+        "border_color": "#121212",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "margin_horizontal": 0,
+        "margin_horizontal_mobile": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_horizontal": 5,
+        "padding_horizontal_mobile": 0,
+        "full_width": false,
+        "content_width": 1200,
+        "border_thickness": 0,
+        "section_radius": 0,
+        "lazy": true
+      }
+    },
     "rich_text_tchWDA": {
       "type": "rich-text",
       "blocks": {
@@ -254,22 +346,24 @@
         "heading_accent": "marque les esprits.",
         "accent_italic": true,
         "description": "<p>Une idée originale pensée pour créer un vrai moment de plaisir. Un objet décoratif qui trouve naturellement sa place dans la maison et qui devient aussi une belle attention à offrir.</p>",
-        "background_color": "#ECE5DC",
-        "text_color": "#24201D",
-        "accent_color": "#642B38",
-        "check_color": "#642B38",
+        "background_color": "#ece5dc",
+        "text_color": "#24201d",
+        "accent_color": "#642b38",
+        "check_color": "#642b38",
+        "heading_size": 42,
+        "heading_weight": "600",
+        "eyebrow_size": 11,
+        "eyebrow_spacing": 18,
+        "body_size": 16,
+        "benefit_size": 14,
         "max_width": 1300,
         "desktop_gap": 65,
         "padding_top": 50,
         "padding_bottom": 50,
-        "eyebrow_size": 11,
-        "eyebrow_spacing": 18,
-        "heading_size": 42,
-        "body_size": 16,
-        "benefit_size": 14,
         "image_radius": 4,
         "image_shadow": false,
         "mobile_image_first": true,
+        "mobile_gap": 30,
         "mobile_padding_top": 35,
         "mobile_padding_bottom": 35,
         "mobile_eyebrow_size": 10,
@@ -335,6 +429,7 @@
   },
   "order": [
     "main",
+    "logooscroll_WfrBPx",
     "rich_text_tchWDA",
     "testimonials_WQT43z",
     "imgtexte_phxW3i",
