@@ -220,6 +220,65 @@
         "testimonial_card_text_color": ""
       }
     },
+    "imgtexte_phxW3i": {
+      "type": "imgtexte",
+      "blocks": {
+        "benefit_fdPpVN": {
+          "type": "benefit",
+          "settings": {
+            "text": "Une idée cadeau originale"
+          }
+        },
+        "benefit_gEzWRV": {
+          "type": "benefit",
+          "settings": {
+            "text": "Pensé pour embellir votre intérieur"
+          }
+        },
+        "benefit_L8NUje": {
+          "type": "benefit",
+          "settings": {
+            "text": "À offrir ou simplement pour se faire plaisir"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_fdPpVN",
+        "benefit_gEzWRV",
+        "benefit_L8NUje"
+      ],
+      "name": "Produit éditorial",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Certains cadeaux s'oublient.  Celui-ci",
+        "heading_accent": "marque les esprits.",
+        "accent_italic": true,
+        "description": "<p>Une idée originale pensée pour créer un vrai moment de plaisir. Un objet décoratif qui trouve naturellement sa place dans la maison et qui devient aussi une belle attention à offrir.</p>",
+        "background_color": "#ECE5DC",
+        "text_color": "#24201D",
+        "accent_color": "#642B38",
+        "check_color": "#642B38",
+        "max_width": 1300,
+        "desktop_gap": 65,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "eyebrow_size": 11,
+        "eyebrow_spacing": 18,
+        "heading_size": 42,
+        "body_size": 16,
+        "benefit_size": 14,
+        "image_radius": 4,
+        "image_shadow": false,
+        "mobile_image_first": true,
+        "mobile_padding_top": 35,
+        "mobile_padding_bottom": 35,
+        "mobile_eyebrow_size": 10,
+        "mobile_heading_size": 30,
+        "mobile_body_size": 14,
+        "mobile_benefit_size": 13,
+        "mobile_image_radius": 4
+      }
+    },
     "faq_WDHyB8": {
       "type": "faq",
       "blocks": {
@@ -278,6 +337,7 @@
     "main",
     "rich_text_tchWDA",
     "testimonials_WQT43z",
+    "imgtexte_phxW3i",
     "faq_WDHyB8"
   ]
 }
