@@ -24,8 +24,8 @@
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Free shipping",
-            "content": "<p>Tell your customers about your shipping offer.</p>"
+            "title": "Livraison Gratuite dès 60€",
+            "content": "<p>Un plaisir à portée de main</p>"
           }
         },
         "customer-support": {
@@ -33,13 +33,13 @@
           "settings": {
             "icon": "picto-customer-support",
             "custom_icon": "shopify://shop_images/returns.svg",
-            "mobile_icon_width": 36,
-            "icon_width": 36,
+            "mobile_icon_width": 32,
+            "icon_width": 32,
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Customer service",
-            "content": "<p>Tell your customers how they can reach you.</p>"
+            "title": "Retours sous 30 Jours",
+            "content": "<p>Un processus simplifié</p>"
           }
         },
         "discount": {
@@ -47,13 +47,13 @@
           "settings": {
             "icon": "picto-coupon",
             "custom_icon": "shopify://shop_images/two-year-guarantee_34bdb209-ebfd-4b41-a28c-284ba9ceca4b.svg",
-            "mobile_icon_width": 36,
-            "icon_width": 36,
+            "mobile_icon_width": 32,
+            "icon_width": 32,
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Refer a friend",
-            "content": "<p>Tell your customers about your promotional offers.</p>"
+            "title": "Garantie 2 ans",
+            "content": "<p>Produits de Qualité & Durables</p>"
           }
         },
         "item_NtJr76": {
@@ -61,13 +61,13 @@
           "settings": {
             "icon": "picto-coupon",
             "custom_icon": "shopify://shop_images/fast-secure-checkout.svg",
-            "mobile_icon_width": 36,
-            "icon_width": 36,
+            "mobile_icon_width": 32,
+            "icon_width": 32,
             "icon_background_type": "none",
             "icon_background": "",
             "icon_color": "",
-            "title": "Refer a friend",
-            "content": "<p>Tell your customers about your promotional offers.</p>"
+            "title": "Paiement Rapide & Sécurisé",
+            "content": "<p>Commandez en toute sérénité</p>"
           }
         }
       },
