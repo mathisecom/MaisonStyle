@@ -115,6 +115,39 @@
         "input_text_color": ""
       }
     },
+    "rich_text_tchWDA": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_QbTVci": {
+          "type": "subheading",
+          "settings": {
+            "text": "ILS EN PARLENT MIEUX QUE NOUS"
+          }
+        },
+        "heading_yRNAf9": {
+          "type": "heading",
+          "settings": {
+            "text": "+3.000 Clients Satisfaits",
+            "heading_tag": "h4",
+            "text_color": "#642B38",
+            "gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_QbTVci",
+        "heading_yRNAf9"
+      ],
+      "name": "Rich text",
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
     "logooscroll_WfrBPx": {
       "type": "logooscroll",
       "blocks": {
@@ -205,39 +238,6 @@
         "border_thickness": 0,
         "section_radius": 0,
         "lazy": true
-      }
-    },
-    "rich_text_tchWDA": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading_QbTVci": {
-          "type": "subheading",
-          "settings": {
-            "text": "ILS EN PARLENT MIEUX QUE NOUS"
-          }
-        },
-        "heading_yRNAf9": {
-          "type": "heading",
-          "settings": {
-            "text": "+3.000 Clients Satisfaits",
-            "heading_tag": "h4",
-            "text_color": "",
-            "gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "subheading_QbTVci",
-        "heading_yRNAf9"
-      ],
-      "name": "Rich text",
-      "settings": {
-        "full_width": true,
-        "content_width": "small",
-        "text_position": "center",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
       }
     },
     "testimonials_WQT43z": {
@@ -429,8 +429,8 @@
   },
   "order": [
     "main",
-    "logooscroll_WfrBPx",
     "rich_text_tchWDA",
+    "logooscroll_WfrBPx",
     "testimonials_WQT43z",
     "imgtexte_phxW3i",
     "faq_WDHyB8"
