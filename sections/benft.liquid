@@ -1,0 +1,627 @@
+{% style %}
+  #shopify-section-{{ section.id }} {
+    --benefits-bg: {{ section.settings.background_color }};
+    --benefits-text: {{ section.settings.text_color }};
+    --benefits-icon: {{ section.settings.icon_color }};
+    --benefits-border: {{ section.settings.border_color }};
+  }
+
+  #shopify-section-{{ section.id }} .mpcs-benefits {
+    width: 100%;
+    background: var(--benefits-bg);
+    border-top: 1px solid var(--benefits-border);
+    border-bottom: 1px solid var(--benefits-border);
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .mpcs-benefits__inner {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_y }}px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .mpcs-benefits__item {
+    position: relative;
+
+    min-height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 0 30px;
+
+    color: var(--benefits-text);
+
+    font-family: inherit;
+    font-size: {{ section.settings.font_size }}px;
+    font-weight: {{ section.settings.font_weight }};
+    line-height: 1.35;
+
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }}
+  .mpcs-benefits__item:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 1px;
+    height: 26px;
+
+    background: var(--benefits-border);
+  }
+
+  #shopify-section-{{ section.id }} .mpcs-benefits__icon {
+    width: {{ section.settings.icon_size }}px;
+    height: {{ section.settings.icon_size }}px;
+
+    flex: 0 0 {{ section.settings.icon_size }}px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--benefits-icon);
+  }
+
+  #shopify-section-{{ section.id }} .mpcs-benefits__icon svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #shopify-section-{{ section.id }} .mpcs-benefits__text {
+    margin: 0;
+
+    color: inherit;
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+
+  /* TABLETTE */
+  @media screen and (max-width: 989px) and (min-width: 750px) {
+
+    #shopify-section-{{ section.id }} .mpcs-benefits__inner {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    #shopify-section-{{ section.id }} .mpcs-benefits__item {
+      gap: 12px;
+
+      padding-left: 15px;
+      padding-right: 15px;
+
+      font-size: calc({{ section.settings.font_size }}px - 1px);
+    }
+
+  }
+
+
+  /* MOBILE SLIDER */
+  @media screen and (max-width: 749px) {
+
+    #shopify-section-{{ section.id }} .mpcs-benefits {
+      overflow: hidden;
+    }
+
+    #shopify-section-{{ section.id }} .mpcs-benefits__inner {
+
+      max-width: none;
+
+      display: flex;
+      align-items: center;
+
+      gap: 0;
+
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+
+      -webkit-overflow-scrolling: touch;
+
+      padding-top: {{ section.settings.mobile_padding_y }}px;
+      padding-bottom: {{ section.settings.mobile_padding_y }}px;
+      padding-left: 6%;
+      padding-right: 6%;
+
+      scrollbar-width: none;
+
+      overscroll-behavior-x: contain;
+    }
+
+
+    #shopify-section-{{ section.id }}
+    .mpcs-benefits__inner::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    #shopify-section-{{ section.id }} .mpcs-benefits__item {
+
+      flex: 0 0 88%;
+      width: 88%;
+
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+
+      min-height: 64px;
+
+      justify-content: center;
+
+      padding: 14px 25px;
+
+      gap: 14px;
+
+      font-size: {{ section.settings.mobile_font_size }}px;
+
+      text-align: center;
+    }
+
+
+    #shopify-section-{{ section.id }}
+    .mpcs-benefits__item:not(:last-child)::after {
+
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      top: 50%;
+
+      bottom: auto;
+      left: auto;
+
+      transform: translateY(-50%);
+
+      width: 1px;
+      height: 30px;
+
+      background: var(--benefits-border);
+    }
+
+
+    #shopify-section-{{ section.id }} .mpcs-benefits__icon {
+
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+
+      flex: 0 0 {{ section.settings.mobile_icon_size }}px;
+    }
+
+
+    #shopify-section-{{ section.id }} .mpcs-benefits__text {
+      white-space: nowrap;
+    }
+
+  }
+
+
+  /* PETITS MOBILES */
+  @media screen and (max-width: 390px) {
+
+    #shopify-section-{{ section.id }} .mpcs-benefits__item {
+
+      flex-basis: 94%;
+      width: 94%;
+
+      padding-left: 15px;
+      padding-right: 15px;
+
+      gap: 10px;
+
+      font-size: calc({{ section.settings.mobile_font_size }}px - 1px);
+    }
+
+  }
+{% endstyle %}
+
+
+<section class="mpcs-benefits">
+
+  <div class="mpcs-benefits__inner">
+
+    {% for block in section.blocks %}
+
+      <div
+        class="mpcs-benefits__item"
+        {{ block.shopify_attributes }}
+      >
+
+        <div class="mpcs-benefits__icon">
+
+          {% case block.settings.icon %}
+
+
+            {% when 'home' %}
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                <path d="M3 10.5 12 3l9 7.5"></path>
+
+                <path d="M5 9.5V21h14V9.5"></path>
+
+                <path d="M9 21v-7h6v7"></path>
+
+              </svg>
+
+
+            {% when 'gift' %}
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                <rect
+                  x="3"
+                  y="8"
+                  width="18"
+                  height="13"
+                  rx="1">
+                </rect>
+
+                <path d="M12 8v13"></path>
+
+                <path d="M3 12h18"></path>
+
+                <path
+                  d="M12 8H7.5A2.5 2.5 0 0 1 5 5.5
+                  2.5 2.5 0 0 1 7.5 3C10.5 3 12 8 12 8Z">
+                </path>
+
+                <path
+                  d="M12 8h4.5A2.5 2.5 0 0 0 19 5.5
+                  2.5 2.5 0 0 0 16.5 3C13.5 3 12 8 12 8Z">
+                </path>
+
+              </svg>
+
+
+            {% when 'note' %}
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                <path d="M9 18V5l10-2v13"></path>
+
+                <circle cx="6" cy="18" r="3"></circle>
+
+                <circle cx="16" cy="16" r="3"></circle>
+
+              </svg>
+
+
+            {% when 'heart' %}
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                <path
+                  d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7
+                  l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8
+                  L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z">
+                </path>
+
+              </svg>
+
+
+            {% when 'star' %}
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                <path
+                  d="m12 2.7 2.8 5.7 6.3.9-4.5 4.4
+                  1 6.2-5.6-3-5.6 3 1-6.2-4.5-4.4
+                  6.3-.9L12 2.7Z">
+                </path>
+
+              </svg>
+
+
+            {% when 'sparkles' %}
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                <path
+                  d="M12 2l1.5 4.5L18 8l-4.5 1.5
+                  L12 14l-1.5-4.5L6 8l4.5-1.5L12 2Z">
+                </path>
+
+                <path
+                  d="m19 14 .8 2.2L22 17l-2.2.8
+                  L19 20l-.8-2.2L16 17l2.2-.8L19 14Z">
+                </path>
+
+                <path
+                  d="m5 13 .7 2L8 16l-2.3.7L5 19
+                  l-.7-2.3L2 16l2.3-1L5 13Z">
+                </path>
+
+              </svg>
+
+
+          {% endcase %}
+
+        </div>
+
+
+        <p class="mpcs-benefits__text">
+
+          {{ block.settings.text }}
+
+        </p>
+
+      </div>
+
+    {% endfor %}
+
+  </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Atouts maison",
+  "settings": [
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Couleur de fond",
+      "default": "#F8F5F0"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Couleur du texte",
+      "default": "#5B402F"
+    },
+
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Couleur des icônes",
+      "default": "#A96E49"
+    },
+
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Couleur séparateurs",
+      "default": "#DDD4C9"
+    },
+
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 1600
+    },
+
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 13,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte PC",
+      "default": 17
+    },
+
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Épaisseur du texte",
+      "default": "400",
+      "options": [
+
+        {
+          "value": "300",
+          "label": "Fin"
+        },
+
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+
+        {
+          "value": "500",
+          "label": "Moyen"
+        },
+
+        {
+          "value": "600",
+          "label": "Semi-gras"
+        }
+
+      ]
+    },
+
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 18,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille icônes PC",
+      "default": 24
+    },
+
+    {
+      "type": "range",
+      "id": "padding_y",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement PC",
+      "default": 20
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte mobile",
+      "default": 15
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 18,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Icônes mobile",
+      "default": 22
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_y",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacement mobile",
+      "default": 4
+    }
+
+  ],
+
+  "blocks": [
+
+    {
+      "type": "benefit",
+      "name": "Avantage",
+
+      "settings": [
+
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icône",
+          "default": "home",
+
+          "options": [
+
+            {
+              "value": "home",
+              "label": "Maison"
+            },
+
+            {
+              "value": "gift",
+              "label": "Cadeau"
+            },
+
+            {
+              "value": "note",
+              "label": "Note"
+            },
+
+            {
+              "value": "heart",
+              "label": "Cœur"
+            },
+
+            {
+              "value": "star",
+              "label": "Étoile"
+            },
+
+            {
+              "value": "sparkles",
+              "label": "Étincelles"
+            }
+
+          ]
+        },
+
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texte",
+          "default": "Du caractère pour la maison"
+        }
+
+      ]
+    }
+
+  ],
+
+  "max_blocks": 3,
+
+  "presets": [
+
+    {
+      "name": "Atouts maison",
+
+      "blocks": [
+
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "home",
+            "text": "Du caractère pour la maison"
+          }
+        },
+
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "gift",
+            "text": "Des attentions qui font plaisir"
+          }
+        },
+
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "note",
+            "text": "Des envies au fil des saisons"
+          }
+        }
+
+      ]
+    }
+
+  ]
+}
+{% endschema %}
