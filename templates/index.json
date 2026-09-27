@@ -9,6 +9,52 @@
  */
 {
   "sections": {
+    "benft_ad3Bi8": {
+      "type": "benft",
+      "blocks": {
+        "benefit_H8QyNf": {
+          "type": "benefit",
+          "settings": {
+            "icon": "home",
+            "text": "Du caractère pour la maison"
+          }
+        },
+        "benefit_nqANeP": {
+          "type": "benefit",
+          "settings": {
+            "icon": "gift",
+            "text": "Des attentions qui font plaisir"
+          }
+        },
+        "benefit_GQ3RpD": {
+          "type": "benefit",
+          "settings": {
+            "icon": "note",
+            "text": "Des envies au fil des saisons"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_H8QyNf",
+        "benefit_nqANeP",
+        "benefit_GQ3RpD"
+      ],
+      "name": "Atouts maison",
+      "settings": {
+        "background_color": "#F8F5F0",
+        "text_color": "#5B402F",
+        "icon_color": "#A96E49",
+        "border_color": "#DDD4C9",
+        "max_width": 1600,
+        "font_size": 17,
+        "font_weight": "400",
+        "icon_size": 24,
+        "padding_y": 20,
+        "mobile_font_size": 15,
+        "mobile_icon_size": 22,
+        "mobile_padding_y": 4
+      }
+    },
     "featured_collection_gn3Jdy": {
       "type": "featured-collection",
       "name": "Featured collection",
@@ -273,6 +319,7 @@
     }
   },
   "order": [
+    "benft_ad3Bi8",
     "featured_collection_gn3Jdy",
     "univers_jHzmHx",
     "rich_text_CQgRfF",
