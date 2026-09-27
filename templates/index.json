@@ -38,6 +38,93 @@
         "product_card_text_color": ""
       }
     },
+    "univers_jHzmHx": {
+      "type": "univers",
+      "blocks": {
+        "universe_fp7TgH": {
+          "type": "universe",
+          "disabled": true,
+          "settings": {
+            "title": "Noël",
+            "eyebrow": "La première inspiration",
+            "heading": "La magie des retrouvailles.",
+            "description": "<p>Les lumières s’allument, les proches se retrouvent. L’univers Noël invite la musique dans les moments de fête.</p>",
+            "image_alt": "",
+            "caption": "",
+            "hide_caption": false,
+            "product": "",
+            "button_label": "",
+            "button_link": "",
+            "hide_button": false,
+            "note": "",
+            "hide_note": false
+          }
+        }
+      },
+      "block_order": [
+        "universe_fp7TgH"
+      ],
+      "name": "Univers musicaux",
+      "settings": {
+        "eyebrow": "Un objet, mille émotions",
+        "heading_top": "À chaque moment,",
+        "heading_bottom": "sa <em>bande-son.</em>",
+        "intro": "<p>Un lecteur musical à disques magnétiques, imaginé pour accompagner les fêtes, les passions et les petits moments du quotidien.</p>",
+        "tabs_label": "Choisir un univers musical",
+        "image_alt": "",
+        "caption": "Le lecteur musical — Édition Noël",
+        "show_note_icon": true,
+        "image_ratio": "1 / 1",
+        "image_fit": "cover",
+        "image_radius": 0,
+        "product": "lecteur-de-disques-vinyle-miniature-personnalise",
+        "button_label": "Découvrir le lecteur",
+        "button_link": "shopify://products/lecteur-de-disques-vinyle-miniature-personnalise",
+        "show_button_arrow": true,
+        "button_radius": 0,
+        "mobile_button_full": true,
+        "note": "",
+        "max_width": 1280,
+        "image_width": 50,
+        "content_width": 480,
+        "desktop_order": "image_first",
+        "text_align": "left",
+        "gap_desktop": 80,
+        "content_gap": 28,
+        "padding_top": 64,
+        "padding_bottom": 64,
+        "padding_x": 32,
+        "mobile_order": "image_first",
+        "mobile_align": "left",
+        "gap_mobile": 32,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 40,
+        "padding_x_mobile": 20,
+        "title_size": 38,
+        "title_size_mobile": 28,
+        "subtitle_size": 22,
+        "subtitle_size_mobile": 20,
+        "text_size": 14,
+        "text_size_mobile": 14,
+        "label_size": 12,
+        "tab_size": 14,
+        "button_size": 15,
+        "small_size": 12,
+        "tab_radius": 0,
+        "background": "#572332",
+        "heading_color": "#fff7eb",
+        "text_color": "#e1c9c6",
+        "accent_color": "#dbb89d",
+        "tab_border": "#91616e",
+        "tab_active_bg": "#f4e8db",
+        "tab_active_text": "#572332",
+        "button_bg": "#f5ece0",
+        "button_color": "#572332",
+        "caption_bg": "#483631",
+        "caption_color": "#ffffff",
+        "image_bg": "#e9e1d9"
+      }
+    },
     "rich_text_CQgRfF": {
       "type": "rich-text",
       "blocks": {
@@ -52,7 +139,7 @@
           "settings": {
             "text": "+3.000 Clients Satifaits",
             "heading_tag": "h4",
-            "text_color": "#642B38",
+            "text_color": "#642b38",
             "gradient": ""
           }
         }
@@ -187,6 +274,7 @@
   },
   "order": [
     "featured_collection_gn3Jdy",
+    "univers_jHzmHx",
     "rich_text_CQgRfF",
     "testimonials_WQ87f9",
     "faq"
