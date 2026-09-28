@@ -12,6 +12,12 @@
     "video_NgRaEB": {
       "type": "video",
       "blocks": {
+        "subheading_KFLqym": {
+          "type": "subheading",
+          "settings": {
+            "text": "DU CARACTÈRE POUR LA MAISON"
+          }
+        },
         "heading_DUiEP6": {
           "type": "heading",
           "settings": {
@@ -32,6 +38,7 @@
         }
       },
       "block_order": [
+        "subheading_KFLqym",
         "heading_DUiEP6",
         "button_TWz64L"
       ],
@@ -79,6 +86,7 @@
         "benefit_nqANeP",
         "benefit_GQ3RpD"
       ],
+      "disabled": true,
       "name": "Atouts maison",
       "settings": {
         "background_color": "#f8f5f0",
@@ -147,9 +155,9 @@
         "subtitle_size": 15,
         "subtitle_spacing": 10,
         "title_spacing": 32,
-        "background_color": "#FBF9F5",
-        "text_color": "#28211D",
-        "image_background": "#EAE0D1",
+        "background_color": "#fbf9f5",
+        "text_color": "#28211d",
+        "image_background": "#eae0d1",
         "max_width": 1400,
         "columns_desktop": 4,
         "column_gap": 28,
@@ -252,7 +260,7 @@
         "transition_type": "fade_with_text",
         "autoplay": false,
         "cycle_speed": 6,
-        "background": "#F2F2F2",
+        "background": "#f2f2f2",
         "background_gradient": ""
       }
     },
@@ -461,6 +469,125 @@
         "testimonial_card_text_color": ""
       }
     },
+    "instapost_bnTGQM": {
+      "type": "instapost",
+      "blocks": {
+        "post_niNCdX": {
+          "type": "post",
+          "settings": {
+            "image": "shopify://shop_images/294884e3dc8d55a058df01381e4b19a1_1.jpg",
+            "link": "",
+            "open_new_tab": true,
+            "hover_text": "Voir la publication",
+            "badge": ""
+          }
+        },
+        "post_npzbHt": {
+          "type": "post",
+          "settings": {
+            "link": "",
+            "open_new_tab": true,
+            "hover_text": "Voir la publication",
+            "badge": ""
+          }
+        },
+        "post_6QNLQR": {
+          "type": "post",
+          "settings": {
+            "link": "",
+            "open_new_tab": true,
+            "hover_text": "Voir la publication",
+            "badge": ""
+          }
+        },
+        "post_YJ8hj3": {
+          "type": "post",
+          "settings": {
+            "link": "",
+            "open_new_tab": true,
+            "hover_text": "Voir la publication",
+            "badge": ""
+          }
+        },
+        "post_bkKaqa": {
+          "type": "post",
+          "settings": {
+            "link": "",
+            "open_new_tab": true,
+            "hover_text": "Voir la publication",
+            "badge": ""
+          }
+        },
+        "post_6dUjTT": {
+          "type": "post",
+          "settings": {
+            "link": "",
+            "open_new_tab": true,
+            "hover_text": "Voir la publication",
+            "badge": ""
+          }
+        }
+      },
+      "block_order": [
+        "post_niNCdX",
+        "post_npzbHt",
+        "post_6QNLQR",
+        "post_YJ8hj3",
+        "post_bkKaqa",
+        "post_6dUjTT"
+      ],
+      "name": "Galerie Instagram",
+      "settings": {
+        "username": "@maisonpourcentstyles",
+        "instagram_url": "",
+        "subtitle": "",
+        "show_title_icon": false,
+        "title_alignment": "center",
+        "title_size": 24,
+        "title_weight": "600",
+        "title_icon_size": 23,
+        "subtitle_size": 14,
+        "subtitle_spacing": 8,
+        "title_spacing": 28,
+        "background_color": "#FBF9F5",
+        "text_color": "#28211D",
+        "image_background": "#E8E5DF",
+        "max_width": 1400,
+        "columns_desktop": 6,
+        "desktop_gap": 2,
+        "image_ratio": "4 / 5",
+        "image_fit": "cover",
+        "image_radius": 0,
+        "hover_zoom": 104,
+        "show_overlay": true,
+        "show_overlay_icon": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 35,
+        "overlay_text_color": "#FFFFFF",
+        "overlay_text_size": 14,
+        "badge_color": "#FFFFFF",
+        "badge_size": 15,
+        "badge_position": 20,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_horizontal": 30,
+        "columns_tablet": 3,
+        "tablet_gap": 2,
+        "columns_mobile": "2",
+        "mobile_title_alignment": "center",
+        "mobile_title_size": 18,
+        "mobile_icon_size": 20,
+        "mobile_subtitle_size": 13,
+        "mobile_title_spacing": 20,
+        "mobile_gap": 2,
+        "mobile_image_radius": 0,
+        "mobile_badge_size": 13,
+        "mobile_badge_position": 16,
+        "mobile_padding_top": 25,
+        "mobile_padding_bottom": 25,
+        "mobile_padding_horizontal": 8
+      }
+    },
     "faq": {
       "type": "faq",
       "blocks": {
@@ -524,6 +651,7 @@
     "univers_jHzmHx",
     "rich_text_CQgRfF",
     "testimonials_WQ87f9",
+    "instapost_bnTGQM",
     "faq"
   ]
 }
