@@ -9,53 +9,6 @@
  */
 {
   "sections": {
-    "benft_ad3Bi8": {
-      "type": "benft",
-      "blocks": {
-        "benefit_H8QyNf": {
-          "type": "benefit",
-          "settings": {
-            "icon": "home",
-            "text": "Du caractère pour la maison"
-          }
-        },
-        "benefit_nqANeP": {
-          "type": "benefit",
-          "settings": {
-            "icon": "gift",
-            "text": "Des attentions qui font plaisir"
-          }
-        },
-        "benefit_GQ3RpD": {
-          "type": "benefit",
-          "settings": {
-            "icon": "note",
-            "text": "Des envies au fil des saisons"
-          }
-        }
-      },
-      "block_order": [
-        "benefit_H8QyNf",
-        "benefit_nqANeP",
-        "benefit_GQ3RpD"
-      ],
-      "disabled": true,
-      "name": "Atouts maison",
-      "settings": {
-        "background_color": "#f8f5f0",
-        "text_color": "#5b402f",
-        "icon_color": "#a96e49",
-        "border_color": "#ddd4c9",
-        "max_width": 1600,
-        "font_size": 17,
-        "font_weight": "400",
-        "icon_size": 24,
-        "padding_y": 20,
-        "mobile_font_size": 15,
-        "mobile_icon_size": 22,
-        "mobile_padding_y": 4
-      }
-    },
     "video_NgRaEB": {
       "type": "video",
       "blocks": {
@@ -94,6 +47,52 @@
         "text_color": "#ffffff",
         "overlay_color": "#000000",
         "overlay_opacity": 40
+      }
+    },
+    "benft_ad3Bi8": {
+      "type": "benft",
+      "blocks": {
+        "benefit_H8QyNf": {
+          "type": "benefit",
+          "settings": {
+            "icon": "home",
+            "text": "Du caractère pour la maison"
+          }
+        },
+        "benefit_nqANeP": {
+          "type": "benefit",
+          "settings": {
+            "icon": "gift",
+            "text": "Des attentions qui font plaisir"
+          }
+        },
+        "benefit_GQ3RpD": {
+          "type": "benefit",
+          "settings": {
+            "icon": "note",
+            "text": "Des envies au fil des saisons"
+          }
+        }
+      },
+      "block_order": [
+        "benefit_H8QyNf",
+        "benefit_nqANeP",
+        "benefit_GQ3RpD"
+      ],
+      "name": "Atouts maison",
+      "settings": {
+        "background_color": "#f8f5f0",
+        "text_color": "#5b402f",
+        "icon_color": "#a96e49",
+        "border_color": "#ddd4c9",
+        "max_width": 1600,
+        "font_size": 17,
+        "font_weight": "400",
+        "icon_size": 24,
+        "padding_y": 20,
+        "mobile_font_size": 15,
+        "mobile_icon_size": 22,
+        "mobile_padding_y": 4
       }
     },
     "unvrscollection_ncWxJA": {
@@ -517,8 +516,8 @@
     }
   },
   "order": [
-    "benft_ad3Bi8",
     "video_NgRaEB",
+    "benft_ad3Bi8",
     "unvrscollection_ncWxJA",
     "featured_collection_gn3Jdy",
     "slideshow_jmNPL9",
