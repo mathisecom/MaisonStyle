@@ -221,6 +221,22 @@
         "product_card_text_color": ""
       }
     },
+    "scrolling_text_aYfUf8": {
+      "type": "scrolling-text",
+      "name": "Scrolling text",
+      "settings": {
+        "full_width": true,
+        "text": "La Maison Selon Vos Envies",
+        "text_size": "xsmall",
+        "text_style": "fill",
+        "scrolling_mode": "auto",
+        "scrolling_speed": 7,
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "text_gradient": ""
+      }
+    },
     "slideshow_jmNPL9": {
       "type": "slideshow",
       "blocks": {
@@ -652,6 +668,7 @@
     "benft_ad3Bi8",
     "unvrscollection_ncWxJA",
     "featured_collection_gn3Jdy",
+    "scrolling_text_aYfUf8",
     "slideshow_jmNPL9",
     "univers_jHzmHx",
     "rich_text_CQgRfF",
