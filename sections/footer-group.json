@@ -84,9 +84,9 @@
         "heading_tag": "h6",
         "text_alignment": "center",
         "icon_spacing": "small",
-        "background": "#ECE5DC",
+        "background": "#ece5dc",
         "background_gradient": "",
-        "text_color": "#642B38"
+        "text_color": "#642b38"
       }
     },
     "footer": {
@@ -95,7 +95,7 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "image": "shopify://shop_images/Nouveau_projet_77.png",
+            "image": "shopify://shop_images/Nouveau_projet_78.png",
             "image_width": 220,
             "heading_size": "h4",
             "title": "Newsletter",
