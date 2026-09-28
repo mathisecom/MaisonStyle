@@ -1,0 +1,1228 @@
+{% style %}
+
+  #shopify-section-{{ section.id }} {
+    --ig-bg: {{ section.settings.background_color }};
+    --ig-text: {{ section.settings.text_color }};
+    --ig-overlay: {{ section.settings.overlay_color }};
+    --ig-overlay-text: {{ section.settings.overlay_text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery {
+    width: 100%;
+    background: var(--ig-bg);
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__container {
+    width: 100%;
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+
+    padding:
+      {{ section.settings.padding_top }}px
+      {{ section.settings.padding_horizontal }}px
+      {{ section.settings.padding_bottom }}px;
+  }
+
+  /* ==========================
+     TITRE / INSTAGRAM
+  ========================== */
+
+  #shopify-section-{{ section.id }} .ig-gallery__header {
+    text-align: {{ section.settings.title_alignment }};
+    margin-bottom: {{ section.settings.title_spacing }}px;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__title {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin: 0;
+
+    color: var(--ig-text);
+    text-decoration: none;
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: {{ section.settings.title_weight }};
+    font-size: {{ section.settings.title_size }}px;
+    line-height: 1.15;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__instagram-icon {
+    width: {{ section.settings.title_icon_size }}px;
+    height: {{ section.settings.title_icon_size }}px;
+
+    flex: 0 0 {{ section.settings.title_icon_size }}px;
+
+    display: {% if section.settings.show_title_icon %}flex{% else %}none{% endif %};
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__instagram-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__subtitle {
+    max-width: 700px;
+
+    margin:
+      {{ section.settings.subtitle_spacing }}px
+      auto
+      0;
+
+    color: var(--ig-text);
+
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.subtitle_size }}px;
+    line-height: 1.55;
+
+    opacity: 0.7;
+  }
+
+  /* ==========================
+     GRILLE
+  ========================== */
+
+  #shopify-section-{{ section.id }} .ig-gallery__grid {
+    display: grid;
+
+    grid-template-columns:
+      repeat({{ section.settings.columns_desktop }}, minmax(0, 1fr));
+
+    gap: {{ section.settings.desktop_gap }}px;
+  }
+
+  /* ==========================
+     PUBLICATION
+  ========================== */
+
+  #shopify-section-{{ section.id }} .ig-gallery__item {
+    min-width: 0;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__link {
+    position: relative;
+
+    display: block;
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: {{ section.settings.image_radius }}px;
+
+    background: {{ section.settings.image_background }};
+
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__media {
+    position: relative;
+
+    width: 100%;
+    aspect-ratio: {{ section.settings.image_ratio }};
+
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: {{ section.settings.image_fit }};
+    object-position: center;
+
+    transition:
+      transform 0.5s ease,
+      filter 0.35s ease;
+  }
+
+  #shopify-section-{{ section.id }}
+  .ig-gallery__link:hover
+  .ig-gallery__image {
+    transform: scale({{ section.settings.hover_zoom | divided_by: 100.0 }});
+  }
+
+  /* Placeholder */
+
+  #shopify-section-{{ section.id }} .ig-gallery__placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__placeholder svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ==========================
+     OVERLAY AU SURVOL
+  ========================== */
+
+  #shopify-section-{{ section.id }} .ig-gallery__overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: color-mix(
+      in srgb,
+      var(--ig-overlay) {{ section.settings.overlay_opacity }}%,
+      transparent
+    );
+
+    color: var(--ig-overlay-text);
+
+    text-align: center;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }}
+  .ig-gallery__link:hover
+  .ig-gallery__overlay {
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__overlay-icon {
+    width: 28px;
+    height: 28px;
+
+    margin-bottom: 9px;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__overlay-icon svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #shopify-section-{{ section.id }} .ig-gallery__overlay-text {
+    margin: 0;
+
+    font-family: var(--font-body-family, inherit);
+    font-size: {{ section.settings.overlay_text_size }}px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  /* Texte directement sur l'image */
+
+  #shopify-section-{{ section.id }} .ig-gallery__badge {
+    position: absolute;
+
+    top: {{ section.settings.badge_position }}px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 2;
+
+    margin: 0;
+
+    color: {{ section.settings.badge_color }};
+
+    font-family: var(--font-heading-family, inherit);
+    font-size: {{ section.settings.badge_size }}px;
+    font-weight: 600;
+    line-height: 1.1;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+  }
+
+  /* ==========================
+     TABLETTE
+  ========================== */
+
+  @media screen and (max-width: 989px) {
+
+    #shopify-section-{{ section.id }} .ig-gallery__container {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__grid {
+      grid-template-columns:
+        repeat({{ section.settings.columns_tablet }}, minmax(0, 1fr));
+
+      gap: {{ section.settings.tablet_gap }}px;
+    }
+
+  }
+
+  /* ==========================
+     MOBILE
+  ========================== */
+
+  @media screen and (max-width: 749px) {
+
+    #shopify-section-{{ section.id }} .ig-gallery__container {
+      padding:
+        {{ section.settings.mobile_padding_top }}px
+        {{ section.settings.mobile_padding_horizontal }}px
+        {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__header {
+      margin-bottom: {{ section.settings.mobile_title_spacing }}px;
+
+      text-align: {{ section.settings.mobile_title_alignment }};
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__title {
+      font-size: {{ section.settings.mobile_title_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__instagram-icon {
+      width: {{ section.settings.mobile_icon_size }}px;
+      height: {{ section.settings.mobile_icon_size }}px;
+      flex-basis: {{ section.settings.mobile_icon_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__subtitle {
+      font-size: {{ section.settings.mobile_subtitle_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__grid {
+      grid-template-columns:
+        repeat({{ section.settings.columns_mobile }}, minmax(0, 1fr));
+
+      gap: {{ section.settings.mobile_gap }}px;
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__link {
+      border-radius: {{ section.settings.mobile_image_radius }}px;
+    }
+
+    /* Pas d'overlay hover permanent sur mobile */
+    #shopify-section-{{ section.id }} .ig-gallery__overlay {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .ig-gallery__badge {
+      top: {{ section.settings.mobile_badge_position }}px;
+
+      font-size: {{ section.settings.mobile_badge_size }}px;
+    }
+
+  }
+
+{% endstyle %}
+
+
+<section class="ig-gallery">
+
+  <div class="ig-gallery__container">
+
+
+    {% if section.settings.username != blank or section.settings.subtitle != blank %}
+
+      <div class="ig-gallery__header">
+
+        {% if section.settings.username != blank %}
+
+          {% if section.settings.instagram_url != blank %}
+            <a
+              href="{{ section.settings.instagram_url }}"
+              class="ig-gallery__title"
+              target="_blank"
+              rel="noopener"
+            >
+          {% else %}
+            <div class="ig-gallery__title">
+          {% endif %}
+
+
+            <span class="ig-gallery__instagram-icon">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none"></circle>
+              </svg>
+
+            </span>
+
+
+            <span>
+              {{ section.settings.username }}
+            </span>
+
+
+          {% if section.settings.instagram_url != blank %}
+            </a>
+          {% else %}
+            </div>
+          {% endif %}
+
+        {% endif %}
+
+
+        {% if section.settings.subtitle != blank %}
+
+          <div class="ig-gallery__subtitle">
+            {{ section.settings.subtitle }}
+          </div>
+
+        {% endif %}
+
+      </div>
+
+    {% endif %}
+
+
+    <div class="ig-gallery__grid">
+
+      {% for block in section.blocks %}
+
+        <div
+          class="ig-gallery__item"
+          {{ block.shopify_attributes }}
+        >
+
+          {% if block.settings.link != blank %}
+
+            <a
+              href="{{ block.settings.link }}"
+              class="ig-gallery__link"
+              {% if block.settings.open_new_tab %}
+                target="_blank"
+                rel="noopener"
+              {% endif %}
+            >
+
+          {% else %}
+
+            <div class="ig-gallery__link">
+
+          {% endif %}
+
+
+              <div class="ig-gallery__media">
+
+
+                {% if block.settings.image != blank %}
+
+                  {{
+                    block.settings.image
+                    | image_url: width: 1200
+                    | image_tag:
+                      class: 'ig-gallery__image',
+                      loading: 'lazy',
+                      widths: '240, 360, 480, 600, 800, 1000, 1200',
+                      sizes: '(max-width: 749px) 50vw, (max-width: 989px) 33vw, 17vw'
+                  }}
+
+                {% else %}
+
+                  <div class="ig-gallery__placeholder">
+                    {{ 'image' | placeholder_svg_tag }}
+                  </div>
+
+                {% endif %}
+
+
+                {% if block.settings.badge != blank %}
+
+                  <p class="ig-gallery__badge">
+                    {{ block.settings.badge }}
+                  </p>
+
+                {% endif %}
+
+
+                {% if section.settings.show_overlay %}
+
+                  <div class="ig-gallery__overlay">
+
+                    {% if section.settings.show_overlay_icon %}
+
+                      <span class="ig-gallery__overlay-icon">
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                          <circle cx="12" cy="12" r="4"></circle>
+                          <circle cx="17.4" cy="6.6" r="0.8" fill="currentColor" stroke="none"></circle>
+                        </svg>
+
+                      </span>
+
+                    {% endif %}
+
+
+                    {% if block.settings.hover_text != blank %}
+
+                      <p class="ig-gallery__overlay-text">
+                        {{ block.settings.hover_text }}
+                      </p>
+
+                    {% endif %}
+
+                  </div>
+
+                {% endif %}
+
+
+              </div>
+
+
+          {% if block.settings.link != blank %}
+
+            </a>
+
+          {% else %}
+
+            </div>
+
+          {% endif %}
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Galerie Instagram",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Instagram"
+    },
+
+    {
+      "type": "text",
+      "id": "username",
+      "label": "Nom du compte",
+      "default": "@maisonpourcentstyles"
+    },
+
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Lien Instagram"
+    },
+
+    {
+      "type": "richtext",
+      "id": "subtitle",
+      "label": "Petit texte sous le compte"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_title_icon",
+      "label": "Afficher l'icône Instagram",
+      "default": false
+    },
+
+
+    {
+      "type": "header",
+      "content": "Titre PC"
+    },
+
+    {
+      "type": "select",
+      "id": "title_alignment",
+      "label": "Alignement",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Gauche"
+        },
+        {
+          "value": "center",
+          "label": "Centre"
+        },
+        {
+          "value": "right",
+          "label": "Droite"
+        }
+      ]
+    },
+
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 18,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille du titre",
+      "default": 28
+    },
+
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Épaisseur",
+      "default": "600",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Moyen"
+        },
+        {
+          "value": "600",
+          "label": "Semi-gras"
+        },
+        {
+          "value": "700",
+          "label": "Gras"
+        }
+      ]
+    },
+
+    {
+      "type": "range",
+      "id": "title_icon_size",
+      "min": 14,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille icône",
+      "default": 23
+    },
+
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "min": 11,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Sous-titre",
+      "default": 14
+    },
+
+    {
+      "type": "range",
+      "id": "subtitle_spacing",
+      "min": 4,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Espace sous le compte",
+      "default": 8
+    },
+
+    {
+      "type": "range",
+      "id": "title_spacing",
+      "min": 10,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant les images",
+      "default": 28
+    },
+
+
+    {
+      "type": "header",
+      "content": "Couleurs"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fond de la section",
+      "default": "#F3F3EF"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Texte",
+      "default": "#28211D"
+    },
+
+    {
+      "type": "color",
+      "id": "image_background",
+      "label": "Fond images",
+      "default": "#E8E5DF"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Grille PC"
+    },
+
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 900,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "label": "Largeur maximale",
+      "default": 1400
+    },
+
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Colonnes PC",
+      "default": 6
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Espace entre images",
+      "default": 2
+    },
+
+
+    {
+      "type": "header",
+      "content": "Images"
+    },
+
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Format",
+      "default": "1 / 1",
+      "options": [
+        {
+          "value": "1 / 1",
+          "label": "Carré"
+        },
+        {
+          "value": "4 / 5",
+          "label": "Portrait 4:5"
+        },
+        {
+          "value": "3 / 4",
+          "label": "Portrait 3:4"
+        },
+        {
+          "value": "4 / 3",
+          "label": "Paysage 4:3"
+        }
+      ]
+    },
+
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Ajustement",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Remplir"
+        },
+        {
+          "value": "contain",
+          "label": "Afficher en entier"
+        }
+      ]
+    },
+
+    {
+      "type": "range",
+      "id": "image_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrondi PC",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "hover_zoom",
+      "min": 100,
+      "max": 112,
+      "step": 1,
+      "label": "Zoom au survol",
+      "default": 104
+    },
+
+
+    {
+      "type": "header",
+      "content": "Effet au survol"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Afficher un effet au survol",
+      "default": true
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_overlay_icon",
+      "label": "Afficher icône Instagram",
+      "default": true
+    },
+
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Couleur overlay",
+      "default": "#000000"
+    },
+
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 10,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacité overlay",
+      "default": 35
+    },
+
+    {
+      "type": "color",
+      "id": "overlay_text_color",
+      "label": "Texte overlay",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "range",
+      "id": "overlay_text_size",
+      "min": 11,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille texte overlay",
+      "default": 14
+    },
+
+
+    {
+      "type": "header",
+      "content": "Texte sur image"
+    },
+
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Couleur",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "range",
+      "id": "badge_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille PC",
+      "default": 15
+    },
+
+    {
+      "type": "range",
+      "id": "badge_position",
+      "min": 10,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Position verticale PC",
+      "default": 20
+    },
+
+
+    {
+      "type": "header",
+      "content": "Espacement PC"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 40
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 10,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 40
+    },
+
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Marges côtés",
+      "default": 30
+    },
+
+
+    {
+      "type": "header",
+      "content": "Tablette"
+    },
+
+    {
+      "type": "range",
+      "id": "columns_tablet",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Colonnes tablette",
+      "default": 3
+    },
+
+    {
+      "type": "range",
+      "id": "tablet_gap",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Espace tablette",
+      "default": 2
+    },
+
+
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Colonnes mobile",
+      "default": "2",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 colonne"
+        },
+        {
+          "value": "2",
+          "label": "2 colonnes"
+        }
+      ]
+    },
+
+    {
+      "type": "select",
+      "id": "mobile_title_alignment",
+      "label": "Alignement titre",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Gauche"
+        },
+        {
+          "value": "center",
+          "label": "Centre"
+        }
+      ]
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_title_size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille titre",
+      "default": 21
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_icon_size",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Taille icône",
+      "default": 20
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_subtitle_size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Sous-titre",
+      "default": 13
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_title_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Espace avant images",
+      "default": 20
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "min": 0,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Espace images",
+      "default": 2
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_image_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrondi images",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_badge_size",
+      "min": 9,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Texte sur image",
+      "default": 13
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_badge_position",
+      "min": 8,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Position texte",
+      "default": 16
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge haute",
+      "default": 25
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Marge basse",
+      "default": 25
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_horizontal",
+      "min": 6,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Marges côtés",
+      "default": 8
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "post",
+      "name": "Publication",
+
+      "settings": [
+
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Lien de la publication"
+        },
+
+        {
+          "type": "checkbox",
+          "id": "open_new_tab",
+          "label": "Ouvrir dans un nouvel onglet",
+          "default": true
+        },
+
+        {
+          "type": "text",
+          "id": "hover_text",
+          "label": "Texte au survol",
+          "default": "Voir la publication"
+        },
+
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Texte sur l'image"
+        }
+
+      ]
+
+    }
+
+  ],
+
+
+  "max_blocks": 12,
+
+
+  "presets": [
+
+    {
+      "name": "Galerie Instagram",
+
+      "blocks": [
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        },
+        {
+          "type": "post"
+        }
+      ]
+
+    }
+
+  ]
+
+}
+{% endschema %}
