@@ -39,6 +39,7 @@
         "benefit_nqANeP",
         "benefit_GQ3RpD"
       ],
+      "disabled": true,
       "name": "Atouts maison",
       "settings": {
         "background_color": "#f8f5f0",
@@ -110,6 +111,7 @@
       "block_order": [
         "universe_fp7TgH"
       ],
+      "disabled": true,
       "name": "Univers musicaux",
       "settings": {
         "eyebrow": "Un objet, mille émotions",
