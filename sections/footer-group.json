@@ -95,8 +95,8 @@
         "newsletter": {
           "type": "newsletter",
           "settings": {
-            "image": "shopify://shop_images/Nouveau_projet_78.png",
-            "image_width": 220,
+            "image": "shopify://shop_images/Nouveau_projet_79_3.png",
+            "image_width": 200,
             "heading_size": "h4",
             "title": "Newsletter",
             "content": ""
