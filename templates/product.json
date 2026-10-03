@@ -587,7 +587,7 @@
         "full_width": true,
         "show_icon": true,
         "title": "Newsletter",
-        "content": "",
+        "content": "<p>Nos nouveautés et nos conseils pour bien décorer votre maison et vos espaces.</p>",
         "button_text": "S'INSCRIRE",
         "subtext": "",
         "background": "",

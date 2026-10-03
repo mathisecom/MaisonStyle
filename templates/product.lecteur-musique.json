@@ -545,6 +545,23 @@
         "accordion_background": "",
         "accordion_text_color": ""
       }
+    },
+    "newsletter_xddA7d": {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": {
+        "full_width": true,
+        "show_icon": true,
+        "title": "Newsletter",
+        "content": "<p>Write something about what your customers will receive by subscribing to your newsletter.</p>",
+        "button_text": "S'INSCRIRE",
+        "subtext": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
     }
   },
   "order": [
@@ -554,6 +571,7 @@
     "testimonials_WQT43z",
     "imgtexte_phxW3i",
     "tableauvs_xwji3H",
-    "faq_WDHyB8"
+    "faq_WDHyB8",
+    "newsletter_xddA7d"
   ]
 }
