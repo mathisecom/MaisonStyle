@@ -391,6 +391,7 @@
         "subheading_NAR4QM",
         "heading_pmVqKp"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "full_width": true,
@@ -467,6 +468,7 @@
         "testimonial_UzX44P",
         "testimonial_U8VieX"
       ],
+      "disabled": true,
       "name": "Testimonials",
       "settings": {
         "full_width": true,
