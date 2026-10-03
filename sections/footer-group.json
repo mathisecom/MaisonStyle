@@ -114,7 +114,7 @@
           "type": "text",
           "settings": {
             "title": "Contactez-Nous",
-            "content": "",
+            "content": "<p>Service Client</p><p>Lun–Ven | 9h–12h / 13h–17h<br/><strong><br/>creation@maisonpourcentstyles.com</strong></p>",
             "enable_follow_on_shop": true
           }
         }
