@@ -22,7 +22,7 @@
         "title": {
           "type": "title",
           "settings": {
-            "heading_tag": "h6"
+            "heading_tag": "h3"
           }
         },
         "price": {
@@ -352,6 +352,7 @@
       ],
       "name": "Produit éditorial",
       "settings": {
+        "image": "shopify://shop_images/5D80106E-B593-45E2-8007-F22FB019D4EE_ce578ffc-162a-421b-ae06-08c08d2dec07.webp",
         "eyebrow": "",
         "heading": "Certains cadeaux s'oublient.  Celui-ci",
         "heading_accent": "marque les esprits.",
