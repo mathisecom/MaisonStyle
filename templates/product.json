@@ -147,6 +147,7 @@
         "subheading_QbTVci",
         "heading_yRNAf9"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "full_width": true,
@@ -211,6 +212,7 @@
         "image_KNzngW",
         "image_7jdGBj"
       ],
+      "disabled": true,
       "name": "SS - Scrolling logo cloud #5",
       "settings": {
         "layout_radius": 30,
@@ -303,6 +305,7 @@
         "testimonial_8HV4UT",
         "testimonial_QUcX9b"
       ],
+      "disabled": true,
       "name": "Testimonials",
       "settings": {
         "full_width": true,
@@ -348,6 +351,7 @@
         "benefit_gEzWRV",
         "benefit_L8NUje"
       ],
+      "disabled": true,
       "name": "Produit éditorial",
       "settings": {
         "eyebrow": "",
@@ -448,6 +452,7 @@
         "row_HyN6qV",
         "row_gNah97"
       ],
+      "disabled": true,
       "name": "Tableau comparatif",
       "settings": {
         "eyebrow": "",
@@ -519,6 +524,7 @@
         "item_6jCRpQ",
         "item_Cwixqa"
       ],
+      "disabled": true,
       "name": "FAQ",
       "settings": {
         "full_width": true,
@@ -541,6 +547,23 @@
         "accordion_background": "",
         "accordion_text_color": ""
       }
+    },
+    "newsletter_LRYEkV": {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": {
+        "full_width": true,
+        "show_icon": true,
+        "title": "Newsletter",
+        "content": "<p>Write something about what your customers will receive by subscribing to your newsletter.</p>",
+        "button_text": "Subscribe",
+        "subtext": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
     }
   },
   "order": [
@@ -550,6 +573,7 @@
     "testimonials_WQT43z",
     "imgtexte_phxW3i",
     "tableauvs_xwji3H",
-    "faq_WDHyB8"
+    "faq_WDHyB8",
+    "newsletter_LRYEkV"
   ]
 }
