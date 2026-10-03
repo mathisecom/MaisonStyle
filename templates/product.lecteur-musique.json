@@ -146,6 +146,7 @@
         "subheading_QbTVci",
         "heading_yRNAf9"
       ],
+      "disabled": true,
       "name": "Rich text",
       "settings": {
         "full_width": true,
@@ -210,6 +211,7 @@
         "image_KNzngW",
         "image_7jdGBj"
       ],
+      "disabled": true,
       "name": "SS - Scrolling logo cloud #5",
       "settings": {
         "layout_radius": 30,
@@ -302,6 +304,7 @@
         "testimonial_8HV4UT",
         "testimonial_QUcX9b"
       ],
+      "disabled": true,
       "name": "Testimonials",
       "settings": {
         "full_width": true,
