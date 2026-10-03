@@ -522,6 +522,7 @@
         "item_6jCRpQ",
         "item_Cwixqa"
       ],
+      "disabled": true,
       "name": "FAQ",
       "settings": {
         "full_width": true,
