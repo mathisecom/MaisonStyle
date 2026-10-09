@@ -199,7 +199,7 @@
         "collection": "",
         "products": [
           "arbre-de-noel-en-bois-lumineux",
-          "lecteur-de-disques-vinyle-miniature-personnalise"
+          "lecteur-musical-de-noel-nfc-9-disques"
         ],
         "full_width": true,
         "stack_products": false,
@@ -320,9 +320,9 @@
         "image_ratio": "1 / 1",
         "image_fit": "cover",
         "image_radius": 0,
-        "product": "lecteur-de-disques-vinyle-miniature-personnalise",
+        "product": "lecteur-musical-de-noel-nfc-9-disques",
         "button_label": "Découvrir le lecteur",
-        "button_link": "shopify://products/lecteur-de-disques-vinyle-miniature-personnalise",
+        "button_link": "shopify://products/lecteur-musical-de-noel-nfc-9-disques",
         "show_button_arrow": true,
         "button_radius": 0,
         "mobile_button_full": true,
